@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Lazy Food Suggester</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+</head>
+<body>
+	<main role="main">
+
+		<!-- Recipe Finder section -->
+		<section class="recipeFinder">
+			<header>
+				<h1>Reverse Recipe Finder</h1>
+				<p>Enter ingredients to retrieve full recipes including those ingredients from some of the best recipe sites accross the web</p>
+			</header>
+			<h2>Ingredients:</h2>
+			<form class="js-ingredients-form">
+				<label for="ingredients">Ingredient</label>
+				<input type="text" name="ingredients" class="js-ingredient-query" required>
+				<button type="submit">Add Ingredient</button>
+			</form>
+			<div class='js-ingredientList'>	
+			</div>
+			<h2>Find Recipes!</h2>
+			<button type="submit" class="js-findRecipesBtn">Submit</button>
+			<h3>Clear Ingredients & Results</h3>
+			<button type="submit" class="js-clearBtn">Clear</button>
+			<p class="js-recipeResults"></p>
+		</section>
+
+		<!-- Restaurant Finder section -->
+		<section>
+			<header>
+				<h1>Restaurant Finder</h1>
+				<p></p>
+			</header>
+			<form class="js-location-form">
+				<label for="location">Location</label>
+				<input type="text" name="location" class="js-location-query" required>
+				<button type="submit">Find Restaurants</button>
+			</form>
+			<div class="js-render-results">
+			
+			</div>
+		</section>
+
+	</main>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="yummyIndex.js"></script>
+	<script type="text/javascript" src="zomatoIndex.js"></script>
+</body>
+</html>
