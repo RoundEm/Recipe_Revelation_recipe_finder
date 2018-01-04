@@ -1,4 +1,38 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
 html {
+}
+main {
+	margin: 0 15px;
 	font-family: 'Nunito', sans-serif;
 }
-
+header h1 {
+	margin: 0 0 5px;
+	font-size: 2em;
+}
+header ul {
+	font-size: 1.25em;
+}
+main h1 {
+	font-size: 1.8em;
+	margin: 20px 0 5px;
+}
+main h2, main h3 {
+	margin: 20px 0 0;
+}
+header nav {
+	font-family: 'Julius Sans One', sans-serif;
+	width: 100%;
+	background-color: #052560;
+	color: white;
+	padding: 10px;
+	text-align: center;
+}
+ul li {
+	display: inline-block;
+	list-style-type: none;
+	padding: 0 15px;
+}
