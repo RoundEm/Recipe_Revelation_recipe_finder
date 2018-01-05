@@ -1,5 +1,3 @@
-// api key: ef5cefd5f83ce27784b9deef30601b9d
-
 const Zomato = {
 	ZOMATO_URL: 'https://developers.zomato.com/api/v2.1/',
 	getCityDataFromAPI: function(cityName) {
@@ -12,12 +10,13 @@ const Zomato = {
 			headers: {
 				'user-key': 'ef5cefd5f83ce27784b9deef30601b9d'
 			},
-			success: Zomato.collectApiData
+			success: Zomato.collectApiData,
 		});
 	},
 	collectApiData: function(data) {
 		console.log('data:', data.location_suggestions[0].name);
-		$('.js-render-results').append(data);
+		let cityId = data.location_suggestions[0].name;
+		$('.js-render-results').append(cityId);
 	},
 	submitListener: function() {
 		$('.js-location-form').submit(function(event) {

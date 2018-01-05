@@ -4,10 +4,17 @@
 	padding: 0;
 }
 html {
+	background-image: url('cookware.jpg');
+	background-repeat: no-repeat;
+	/*background-size:100% 100%;
+	width: 100%;
+    height: 100%;
+    max-height: 100%;*/   
 }
 main {
 	margin: 0 15px;
 	font-family: 'Nunito', sans-serif;
+
 }
 header h1 {
 	margin: 0 0 5px;
@@ -26,7 +33,7 @@ main h2, main h3 {
 header nav {
 	font-family: 'Julius Sans One', sans-serif;
 	width: 100%;
-	background-color: #052560;
+	background-color: #9eb0f6;
 	color: white;
 	padding: 10px;
 	text-align: center;
@@ -35,4 +42,22 @@ ul li {
 	display: inline-block;
 	list-style-type: none;
 	padding: 0 15px;
+}
+.resultResponse {
+	padding: 10px 0;
+}
+span {
+	font-weight: bold;
+}
+input[type='text'] {
+	height: 25px;
+	width: 200px;
+}
+button {
+	padding: 5px;
+	background-color: #5877f0;
+	border-radius: 10px;
+	font-size: .8em;
+	color: white;
+
 }

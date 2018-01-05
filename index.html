@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Lazy Food Suggester</title>
+	<title>My Site Name</title>
 	<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"> --> 
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -10,24 +10,23 @@
 <body>
 
 		<header role="banner">
-			<nav>
+			<nav role="navigation">
 				<h1>My Site Name</h1>
-				<ul>
-					<li>Recipe Suggestor</li>
+				<!-- <ul>
+					<li>Reverse Recipe Finder</li>
 					<li>Restaurant Finder</li>
-				</ul>
+				</ul> -->
 			</nav>
 		</header>
 
 	<main role="main">
 
-		<!-- Recipe Finder section -->
 		<section class="recipeFinder">
 			<header role="banner">
 				<h1>Reverse Recipe Finder</h1>
-				<p>Enter ingredients to retrieve full recipes including those ingredients from some of the best recipe sites accross the web</p>
+				<p>Retrieve full recipes by entering at least one ingredient. Returned recipes will include all ingredients listed. For the best results keep ingredients general and lean towards less ingredients rather than too many.</p>
 			</header>
-			<form class="js-ingredients-form">
+			<form role="form" class="js-ingredients-form">
 				<label for="ingredients">Ingredients:</label>
 				<input type="text" name="ingredients" class="js-ingredient-query" required>
 				<button type="submit">Add Ingredient</button>
@@ -36,29 +35,28 @@
 			</div>
 			<h2>Find Recipes!</h2>
 			<button type="submit" class="js-findRecipesBtn">Submit</button>
-			<h3>Clear Ingredients & Results</h3>
+			<h3>Clear Ingredients</h3>
 			<button type="submit" class="js-clearBtn">Clear</button>
-			<p class="js-recipeResults"></p>
+			<div class="resultResponse"></div>
+			<div class="js-recipeResults"></div>
 		</section>
 
-		<!-- Restaurant Finder section -->
-		<section class="restaurantFinder">
+		<!-- <section class="restaurantFinder">
 			<header role="banner">
 				<h1>Restaurant Finder</h1>
-				<p></p>
+				<p>Lorum ipsum bldafn dafhdlk n idsh sdland scsld vnlksdvn lkn</p>
 			</header>
-			<form class="js-location-form">
+			<form role="form" class="js-location-form">
 				<label for="location">Location:</label>
 				<input type="text" name="location" class="js-location-query" required>
 				<button type="submit">Find Restaurants</button>
 			</form>
 			<div class="js-render-results">
 			</div>
-		</section>
+		</section> -->
 
 	</main>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="yummlyIndex.js"></script>
-	<script type="text/javascript" src="zomatoIndex.js"></script>
 </body>
 </html>
