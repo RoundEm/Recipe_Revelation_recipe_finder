@@ -12,10 +12,6 @@
 		<header role="banner">
 			<nav role="navigation">
 				<h1>My Site Name</h1>
-				<!-- <ul>
-					<li>Reverse Recipe Finder</li>
-					<li>Restaurant Finder</li>
-				</ul> -->
 			</nav>
 		</header>
 
@@ -31,32 +27,24 @@
 				<input type="text" name="ingredients" class="js-ingredient-query" required>
 				<button type="submit">Add Ingredient</button>
 			</form>
-			<div class='js-ingredientList'>	
+			<div class="ingredientList">	
+				<ul>
+				</ul>
 			</div>
 			<h2>Find Recipes!</h2>
-			<button type="submit" class="js-findRecipesBtn">Submit</button>
+			<button class="js-findRecipesBtn">Submit</button>
 			<h3>Clear Ingredients</h3>
 			<button type="submit" class="js-clearBtn">Clear</button>
-			<div class="resultResponse"></div>
-			<div class="js-recipeResults"></div>
-		</section>
-
-		<!-- <section class="restaurantFinder">
-			<header role="banner">
-				<h1>Restaurant Finder</h1>
-				<p>Lorum ipsum bldafn dafhdlk n idsh sdland scsld vnlksdvn lkn</p>
-			</header>
-			<form role="form" class="js-location-form">
-				<label for="location">Location:</label>
-				<input type="text" name="location" class="js-location-query" required>
-				<button type="submit">Find Restaurants</button>
-			</form>
-			<div class="js-render-results">
+			<div class="resultResponse">
 			</div>
-		</section> -->
+			<div class="js-recipeResults">
+			</div>
+			<button class="moreResults">More Results</button>
+		</section>
 
 	</main>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="yummlyIndex.js"></script>
+	<script type="text/javascript" src="getIngredients.js"></script>
+	<!-- <script type="text/javascript" src="getRecipe.js"></script> -->
 </body>
 </html>
