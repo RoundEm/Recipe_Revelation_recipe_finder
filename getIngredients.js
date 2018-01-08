@@ -1,10 +1,9 @@
 const Yummly = {
 	INGREDIENT_URL: 'https://api.yummly.com/v1/api/recipes',
-	RECIPE_URL: 'http://api.yummly.com/v1/api/recipe',
+	RECIPE_URL: 'http://api.yummly.com/v1/api/recipe/',
+	resultData: [],
 	ingredients: [],
 	startPage: 0,
-	// prevPage: '',
-	// nextPage: '',
 	getDataFromApi: function(allowedIngredient, callback, start) {	
 		const query = {
 			_app_id: 'aa298305',
@@ -15,13 +14,32 @@ const Yummly = {
 		}
 		$.getJSON(Yummly.INGREDIENT_URL, query, callback);
 	},
+	getRecipeDataFromApi: function(callback) {
+		console.log('getRecipeDataFromApi ran:', Yummly.resultData.matches.length);
+		for (let i = 0; i < Yummly.resultData.matches.length; i++) {
+			const query = {
+				_app_id: 'aa298305',
+				_app_key: 'f1568a729fd303537771dd46dbc3f91b',
+			}
+			console.log('Yummly.resultData.matches[0].id:', Yummly.resultData.matches[i].id);
+			$.getJSON(Yummly.RECIPE_URL + Yummly.resultData.matches[i].id, query, Yummly.processRecipeData);
+		}	
+		callback();
+	},
+	processRecipeData: function(data) {
+		console.log('processRecipeData:', data);
+	},
+	displayRecipeData: function() {
+		console.log('displayRecipeData func ran:');
+
+	},
 	collectIngredients: function() {	
 		$('.js-ingredients-form').submit(function() {
 			event.preventDefault();
-
-			// hide any previously successful results
+			// hide any previously successful results and hide More Results button
 			$('.js-recipeResults').empty();			
 			$('.resultResponse').empty();
+			$('.moreResults').hide();
 			// find ingredient input
 			const queryTarget = $(this).find('.js-ingredient-query');
 			const queryValue = queryTarget.val();
@@ -41,7 +59,7 @@ const Yummly = {
 	},
 	findRecipes: function() {
 		$('.js-findRecipesBtn').click(function() {
-			Yummly.getDataFromApi(Yummly.ingredients, Yummly.macthVerification);
+			Yummly.getDataFromApi(Yummly.ingredients, Yummly.matchValidation);
 			Yummly.startPage += 10;
 			console.log('startFind:', Yummly.startPage);
 		});
@@ -53,21 +71,22 @@ const Yummly = {
 			Yummly.ingredients = [];
 		});
 	},
-	macthVerification: function(data) {
+	matchValidation: function(data) {
 		// check if matches are found
 		if (data.matches.length === 0) {
 			$('.resultResponse').html("Sorry, the ingredients entered returned 0 hits. Please select clear and try a different search.");
 		} else {
 			$('.resultResponse').append(`Sucess! ${data.attribution.html}`);
+			$('.moreResults').show();
+			Yummly.resultData = data;
 			Yummly.displayApiData(data);
+			
 		}
 	},
 	displayApiData: function(data) {
 		// loop through data object and add Recipe Name and Source Name to newElements string
 		let newElements = '';
-		let recipeId = [];
 		for (let i = 0; i < data.matches.length; i++) {
-			recipeId.push(data.matches[i].id);
 			newElements += `<p>${data.matches[i].recipeName} from <span>${data.matches[i].sourceDisplayName}</span></p>`;
 			// format ingredient list to have proper space after each comma between ingredients
 			let ingredientString = '';
@@ -80,17 +99,16 @@ const Yummly = {
 			newElements += `<p>Ingredients: ${ingredientString}</p>`;
 			newElements += `<img src="${data.matches[i].imageUrlsBySize[90]}" alt=picture of ${data.matches[i].recipeName}">`;
 		}
-		$('.js-recipeResults').append(newElements);
-		console.log('recipeId:', recipeId);
-		console.log('data Object2:', data);	
-		// functionName(recipeId); TODO - figure out how to handle the Recipe IDs
+		$('.js-recipeResults').html(newElements);
+		Yummly.getRecipeDataFromApi(Yummly.displayRecipeData);
 	},
-		
 	moreResults: function() {
 		$('.moreResults').click(function() {
 			Yummly.getDataFromApi(Yummly.ingredients, Yummly.displayApiData, Yummly.startPage);
 			Yummly.startPage += 10;
 			console.log('startMore:', Yummly.startPage);
+			// Scroll to top of next page
+			document.body.scrollTop = document.documentElement.scrollTop = 225;
 		});
 	},
 	setup: function() {
@@ -100,15 +118,6 @@ const Yummly = {
 		Yummly.removeIngredient();
 		Yummly.moreResults();
 	},
-	// getRecipeDataFromApi: function(, callback) {	
-	// 	const query = {
-	// 		_app_id: 'aa298305',
-	// 		_app_key: 'f1568a729fd303537771dd46dbc3f91b',
-	// 		allowedIngredient: allowedIngredient,
-	// 		maxresults: 15,
-	// 		start: 0,
-	// 	}
-	// 	$.getJSON(Yummly.YUMMLY_RECIPES_URL, query, callback);
-	// },
+
 }	
 $(Yummly.setup);

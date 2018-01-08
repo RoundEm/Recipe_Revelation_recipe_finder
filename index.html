@@ -11,7 +11,7 @@
 
 		<header role="banner">
 			<nav role="navigation">
-				<h1>My Site Name</h1>
+				<h1>MySiteName</h1>
 			</nav>
 		</header>
 
@@ -20,10 +20,10 @@
 		<section class="recipeFinder">
 			<header role="banner">
 				<h1>Reverse Recipe Finder</h1>
-				<p>Retrieve full recipes by entering at least one ingredient. Returned recipes will include all ingredients listed. For the best results keep ingredients general and lean towards less ingredients rather than too many.</p>
+				<p>Do you ever find yourself wondering what meals you can cook with the ingredients available in your kitchen. Do you ever feel uninspired in the kitchen and just want some random ideas for tasty recipes that utilize specific ingredients? If so then you're in luck! <i>MySiteName</i>, which is powered by the recipe aggregator website, <a href="https://www.yummly.com/">Yummly</a>, allows you to retrieve full and delicious recipes from some of <a href="https://developer.yummly.com/#sources">the most popular food blogs and recipe sites</a>, just by searching for one or more ingredients. Successfully returned recipes will include a minimum of all the ingredients you search for. For best results, keep ingredient names general and don't combine separate ingredients into one line.</p>
 			</header>
 			<form role="form" class="js-ingredients-form">
-				<label for="ingredients">Ingredients:</label>
+				<label for="ingredients">Enter Ingredients one-at-a-time:</label>
 				<input type="text" name="ingredients" class="js-ingredient-query" required>
 				<button type="submit">Add Ingredient</button>
 			</form>
@@ -31,10 +31,10 @@
 				<ul>
 				</ul>
 			</div>
+			<h2>Clear Ingredients</h2>
+			<button type="submit" class="js-clearBtn">Clear</button>
 			<h2>Find Recipes!</h2>
 			<button class="js-findRecipesBtn">Submit</button>
-			<h3>Clear Ingredients</h3>
-			<button type="submit" class="js-clearBtn">Clear</button>
 			<div class="resultResponse">
 			</div>
 			<div class="js-recipeResults">
