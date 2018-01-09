@@ -3,7 +3,7 @@ const Yummly = {
 	RECIPE_URL: 'http://api.yummly.com/v1/api/recipe/',
 	resultData: [],
 	ingredients: [],
-	startPage: 0,
+	page: 0,
 	getDataFromApi: function(allowedIngredient, callback, start) {	
 		const query = {
 			_app_id: 'aa298305',
@@ -57,11 +57,10 @@ const Yummly = {
     			}
 		    }
 		}
-		console.log('all info added to Yummly.resultData', Yummly.resultData)
+		console.log('all info added to Yummly.resultData:', Yummly.resultData)
 	},
 	displayRecipeData: function() {
-		console.log('displayRecipeData func ran:');
-
+		console.log('displayRecipeData func ran');
 	},
 	collectIngredients: function() {	
 		$('.js-ingredients-form').submit(function() {
@@ -70,16 +69,19 @@ const Yummly = {
 			$('.js-recipeResults').empty();			
 			$('.resultResponse').empty();
 			$('.moreResults').hide();
+			$('.priorResults').hide();
 			// find ingredient input
 			const queryTarget = $(this).find('.js-ingredient-query');
-			const queryValue = queryTarget.val();
+			const queryValue = queryTarget.val().toLowerCase();
 			// display ingredient to list in browser and add it to array
 			$('.ingredientList ul').append(`<li>${queryValue}</li>`);
 			Yummly.ingredients.push(queryValue);
 			// encodeURI replaces spaces in ingredients (e.g. green beans) with %20
 			console.log(encodeURI(Yummly.ingredients));
 			// clear input
-			queryTarget.val('');	
+			queryTarget.val('');
+			Yummly.page = 0;
+			$('.searchSection').show();
 		});
 	},
 	removeIngredient: function() {
@@ -90,11 +92,15 @@ const Yummly = {
 	findRecipes: function() {
 		$('.js-findRecipesBtn').click(function() {
 			Yummly.getDataFromApi(Yummly.ingredients, Yummly.matchValidation);
-			Yummly.startPage += 10;
-			console.log('startFind:', Yummly.startPage);
+			if (Yummly.page > 0) {
+				Yummly.page = 0;
+			} else {
+				Yummly.page += 10;
+			}
+			console.log('page:', Yummly.page);
 		});
 	},
-	clearSearch: function() {
+	clearIngredientList: function() {
 		$('.js-clearBtn').click(function() {
 			$('.ingredientList ul').empty();
 			$('.resultResponse').empty();
@@ -106,14 +112,14 @@ const Yummly = {
 		if (data.matches.length === 0) {
 			$('.resultResponse').html("Sorry, the ingredients entered returned 0 hits. Please select clear and try a different search.");
 		} else {
-			$('.resultResponse').append(`Sucess! ${data.attribution.html}`);
+			$('.resultResponse').html(`Sucess! ${data.attribution.html}`);
 			$('.moreResults').show();
+			$('.searchSection').hide();
 			Yummly.resultData = data;
-			Yummly.displayApiData(data);
-			
+			Yummly.processIngredientData(data);
 		}
 	},
-	displayApiData: function(data) {
+	processIngredientData: function(data) {
 		// loop through data object and add Recipe Name and Source Name to newElements string
 		let newElements = '';
 		for (let i = 0; i < data.matches.length; i++) {
@@ -127,16 +133,32 @@ const Yummly = {
 				}
 			}
 			newElements += `<p>Ingredients: ${ingredientString}</p>`;
-			newElements += `<img src="${data.matches[i].imageUrlsBySize[90]}" alt=picture of ${data.matches[i].recipeName}">`;
 		}
+		if (Yummly.page > 10) {
+			$('.priorResults').show();
+		} else if (Yummly.page = 10) {
+			$('.priorResults').hide();
+		}
+		// if (Yummly.page !== 10) {
+		// 	$('.searchSection').
+		// }
 		$('.js-recipeResults').html(newElements);
 		Yummly.getRecipeDataFromApi();
 	},
 	moreResults: function() {
 		$('.moreResults').click(function() {
-			Yummly.getDataFromApi(Yummly.ingredients, Yummly.displayApiData, Yummly.startPage);
-			Yummly.startPage += 10;
-			console.log('startMore:', Yummly.startPage);
+			Yummly.getDataFromApi(Yummly.ingredients, Yummly.processIngredientData, Yummly.page);
+			Yummly.page += 10;
+			console.log('page Number:', Yummly.page);
+			// Scroll to top of next page
+			document.body.scrollTop = document.documentElement.scrollTop = 225;
+		});
+	},
+	priorResults: function() {
+		$('.priorResults').click(function() {
+			Yummly.getDataFromApi(Yummly.ingredients, Yummly.processIngredientData, Yummly.page);
+			Yummly.page -= 10;	
+			console.log('page Number:', Yummly.page);
 			// Scroll to top of next page
 			document.body.scrollTop = document.documentElement.scrollTop = 225;
 		});
@@ -144,10 +166,10 @@ const Yummly = {
 	setup: function() {
 		Yummly.findRecipes();
 		Yummly.collectIngredients();
-		Yummly.clearSearch();
+		Yummly.clearIngredientList();
 		Yummly.removeIngredient();
 		Yummly.moreResults();
+		Yummly.priorResults();
 	},
-
 }	
 $(Yummly.setup);
