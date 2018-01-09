@@ -64,7 +64,7 @@ const Yummly = {
 	},
 	displayRecipeData: function(recipeData) {
 		console.log('displayRecipeData func ran');
-
+		console.log('recipeIngredients:', recipeIngredients);
 	},
 // `<img src="${Yummly.resultRecipeData[i].images[0].hostedLargeUrl}">`
 	collectIngredients: function() {	
