@@ -37,10 +37,10 @@ header nav {
 	padding: 10px;
 	text-align: center;
 }
-header p {
+header p {		
 	margin: 0 0 15px;
 }
-.ingredientList ul {
+header li, .ingredientList ul {
 	margin: 0 0 0 25px;
 }
 .resultResponse {
@@ -48,6 +48,9 @@ header p {
 }
 .resultResponse p {
 	margin: 0;
+}
+.js-recipeResults li {
+	list-style-type: none;
 }
 span {
 	font-weight: bold;
