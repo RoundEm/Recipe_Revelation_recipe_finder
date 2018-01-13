@@ -16,38 +16,41 @@
 
 	<main role="main">
 
-		<section class="recipeFinder">
-			<header role="banner">
-				<p>Do you ever find yourself wondering what meals you can cook with the ingredients available in your kitchen? Do you ever feel uninspired in the kitchen and just want some random ideas for tasty and popular recipes that utilize specific ingredients? If so then you're in luck! <i>Recipe Revelation</i>, which is powered by the recipe aggregator website, <a href="https://www.yummly.com/">Yummly</a>, is a reverse recipe finder that allows you to retrieve full and delicious recipes from some of <a href="https://developer.yummly.com/#sources">the most popular food blogs and recipe sites</a> just by searching for one or more ingredient. Successfully returned recipes will include a minimum of all the ingredients you search for. 
-				<ul>Tips for best results: 
-					<li>Keep ingredient names general</li>
-					<li>Don't combine separate ingredients into one entry</li>
-					<li>Don't search by methods of preparation or cooking technique</li>
-				</ul>
-			</header>
+		<header role="banner">
+			<p>Do you ever find yourself wondering what meals you can cook with the ingredients available in your kitchen? Do you ever feel uninspired in the kitchen and just want some random ideas for tasty and popular recipes that utilize specific ingredients? If so then you're in luck! <i>Recipe Revelation</i>, which is powered by the recipe aggregator website, <a href="https://www.yummly.com/">Yummly</a>, is a reverse recipe finder that allows you to retrieve full and delicious recipes from some of <a href="https://developer.yummly.com/#sources">the most popular food blogs and recipe sites</a> just by searching for one or more ingredient. Successfully returned recipes will include a minimum of all the ingredients you search for.</p>
+		</header>
+
+		<section class="searchSection">
+			<p>Tips for best search results:</p>
+			<ul> 
+				<li>Keep ingredient names general</li>
+				<li>Don't combine separate ingredients into one entry</li>
+				<li>Don't search by methods of preparation or cooking technique</li>
+			</ul>
 			<form role="form" class="js-ingredients-form">
 				<label for="ingredients">Enter Ingredients one-at-a-time:</label>
 				<input type="text" name="ingredients" class="js-ingredient-query" required>
 				<button type="submit">Add Ingredient</button>
 			</form>
-			<div class="ingredientList" aria-live="assertive">	
+			<div class="ingredientList" aria-live="assertive">
 				<ul>
 
 				</ul>
 			</div>
 			<h2>Clear Ingredients</h2>
 			<button type="submit" class="js-clearBtn">Clear</button>
-			<div class="searchSection">
-				<h2>Find Recipes!</h2>
-				<button class="js-findRecipesBtn">Submit</button>
-			</div>
-			<div class="resultResponse" aria-live="assertive">
+		</section>
 
-			</div>
-			<div class="js-recipeResults" aria-live="assertive">
-				<ul>
+		<div class="findRecipes">
+			<h2>Find Recipes!</h2>
+			<button class="js-findRecipesBtn">Submit</button>
+		</div>
+
+		<section aria-live="assertive">
+			<div class="resultsContainer">
+				<div class="js-recipeResults">
 					
-				</ul>
+				</div>
 			</div>
 			<button class="btn priorResults">Prior Results</button>
 			<button class="btn moreResults">More Results</button>

@@ -4,8 +4,8 @@
 	padding: 0;
 }
 html {
-	background-image: url('cookware.jpg');
-	background-repeat: no-repeat;
+	/*background-image: url('cookware.jpg');
+	background-repeat: no-repeat;*/
 	/*background-size:100% 100%;
 	width: 100%;
     height: 100%;
@@ -26,7 +26,7 @@ main h1 {
 	font-size: 1.8em;
 	margin: 20px 0 5px;
 }
-main h2, main h3 {
+main h2 {
 	margin: 20px 0 0;
 }
 header nav {
@@ -40,18 +40,27 @@ header nav {
 header p {		
 	margin: 0 0 15px;
 }
-header li, .ingredientList ul {
+form {
+	margin: 5px 0 0 0;
+}
+h3 {
+
+}
+.searchSection li, .ingredientList ul {
 	margin: 0 0 0 25px;
 }
-.resultResponse {
-	padding: 10px 0;
+.resultsContainer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
-.resultResponse p {
-	margin: 0;
+.js-recipeResults {
+	width: 33%;
 }
+/*why does this need to have li to work, something with jQuery being responsible for inserting the li? 
 .js-recipeResults li {
 	list-style-type: none;
-}
+}*/
 span {
 	font-weight: bold;
 }
