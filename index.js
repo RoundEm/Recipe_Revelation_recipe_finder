@@ -3,8 +3,12 @@ const Yummly = {
 	RECIPE_URL: 'https://api.yummly.com/v1/api/recipe/',
 	resultData: [],
 	ingredients: [],
+	responseResult: 9,
 	page: 0,
 	displayCounter: 0,
+	totalResults: 0,
+	resultsRemaining: 0,
+	resultsLimiter: 9,
 	getDataFromApi: function(allowedIngredient, callback, start) {
 		const apiAuth = {
 			_app_id: 'aa298305',
@@ -21,7 +25,6 @@ const Yummly = {
 				_app_id: 'aa298305',
 				_app_key: 'f1568a729fd303537771dd46dbc3f91b',
 			}
-			// console.log('Yummly.resultData.matches[0].id:', Yummly.resultData.matches[i].id);
 			$.getJSON(Yummly.RECIPE_URL + Yummly.resultData.matches[i].id, apiAuth, Yummly.processRecipeData);
 		}
 	},
@@ -47,16 +50,8 @@ const Yummly = {
 				console.log('property:', property);
 				// if property is not in existing keys of data, add it
 				let includesProperty = (objectKeys).includes(property);
-				let propertyNull = Yummly.resultData.matches[resultDataIndex][property] === null || Yummly.resultData.matches[resultDataIndex][property] === undefined;
-				console.log('includesProperty:', includesProperty);
-				console.log('propertyNull:', propertyNull);
 				if (!includesProperty) {
-					console.log(`Yummly.resultData.matches[${resultDataIndex}] before:`, Yummly.resultData.matches[resultDataIndex]);
-  				console.log(`Yummly.resultData.matches[${resultDataIndex}][${property}] before:`, Yummly.resultData.matches[resultDataIndex][property]);
-					console.log('data:', data);
-					console.log(`data[${property}]:`, data[property]);
-  				Yummly.resultData.matches[resultDataIndex][property] = data[property];
-					console.log(`Yummly.resultData.matches[${resultDataIndex}][${property}] after:`, Yummly.resultData.matches[resultDataIndex][property]);
+  					Yummly.resultData.matches[resultDataIndex][property] = data[property];
     			}
 		    }
 		}
@@ -67,7 +62,8 @@ const Yummly = {
 		Yummly.displayRecipeData();
 	},
 	displayRecipeData: function() {
-		if (Yummly.displayCounter === 9) {
+		let ingredientsProper = Yummly.formatIngredients();
+		if (Yummly.displayCounter === Yummly.resultsLimiter) {
 			for (let i = 0; i < Yummly.resultData.matches.length; i++) {
 				let recipeName = Yummly.resultData.matches[i].name;
 				let sourceName = Yummly.resultData.matches[i].sourceDisplayName;
@@ -82,6 +78,7 @@ const Yummly = {
 			}
 		}	
 	},
+	// resultsRemaining
 	collectIngredients: function() {
 		$('.js-ingredients-form').submit(function() {
 			event.preventDefault();
@@ -95,7 +92,7 @@ const Yummly = {
 			// display ingredient to list in browser and add it to array
 			$('.ingredientList ul').append(`<li>${queryValue}</li>`);
 			Yummly.ingredients.push(queryValue);
-			// encodeURI replaces spaces in ingredients (e.g. green beans) with %20
+			// encodeURI replaces spaces in ingredients (e.g. green beans with %20)
 			console.log(encodeURI(Yummly.ingredients));
 			queryTarget.val('');
 			$('.findRecipes').show();
@@ -133,21 +130,32 @@ const Yummly = {
 			$('.moreResults').show();
 			$('.findRecipes').hide();
 			Yummly.resultData = data;
+			Yummly.totalResults = data.totalMatchCount;
+			console.log('totalResults:', Yummly.totalResults);
 			console.log('Yummly.resultData', Yummly.resultData);
 			Yummly.getRecipeDataFromApi();
 		}
 	},
-	// formatIngredients: function() {
-	// 	// format ingredient list to have proper space after each comma between ingredients
-	// 	let ingredientString = '';
-	// 		for (let i = 0; j < data.matches[i].ingredients.length; j++) {
-	// 			ingredientString += data.matches[i].ingredients[j];
-	// 			if (data.matches[i].ingredients.length - 1 !== j) {
-	// 				ingredientString += ', ';
-	// 			}
-	// 		}
-	// 	return 
-	// },
+	checkPageNumber: function(data) {
+		Yummly.resultData = data;
+		Yummly.resultsRemaining = Yummly.totalResults - Yummly.page;
+		console.log('Yummly.resultsRemaining:', Yummly.resultsRemaining);
+		if (Yummly.resultsRemaining < Yummly.responseResult) {
+			Yummly.resultsLimiter = Yummly.resultsRemaining;		
+		}
+		Yummly.getRecipeDataFromApi();
+	},
+	formatIngredients: function() {
+		// format ingredient list to have proper space after each comma between ingredients
+		let ingredientString = '';
+			for (let i = 0; i < data.matches[i].ingredients.length; j++) {
+				ingredientString += data.matches[i].ingredients[j];
+				if (data.matches[i].ingredients.length - 1 !== j) {
+					ingredientString += ', ';
+				}
+			}
+		return ingredientString;
+	},
 	paginationButtonFilter: function(data) {
 		if (Yummly.page > 0) {
 			$('.priorResults').show();
@@ -158,26 +166,33 @@ const Yummly = {
 	moreResults: function() {
 		$('.moreResults').click(function() {;
 			Yummly.displayCounter = 0;
-			Yummly.page += 9;
+			Yummly.page += Yummly.responseResult;
 			console.log('page Number more:', Yummly.page);
 			$('.js-recipeResults').empty();
 			Yummly.paginationButtonFilter();
-			Yummly.getDataFromApi(Yummly.ingredients, Yummly.ingredientMatchValidation, Yummly.page);
+			Yummly.getDataFromApi(Yummly.ingredients, Yummly.checkPageNumber, Yummly.page);
 			// Scroll to top of next page
 			document.body.scrollTop = document.documentElement.scrollTop = 225;
+			// if on last page of results, hide more results button
+			// if (Yummly.totalResults % Yummly.responseResult !== 0) {
+			// 	$('.moreResults').hide();
+			// }
 		});
 	},
 	priorResults: function() {
 		$('.priorResults').click(function() {
 			Yummly.displayCounter = 0;
-			Yummly.page -= 9;
+			Yummly.page -= Yummly.responseResult;
 			console.log('page Number prior:', Yummly.page);
 			$('.js-recipeResults').empty();
 			Yummly.paginationButtonFilter();
 			console.log('test test');
-			Yummly.getDataFromApi(Yummly.ingredients, Yummly.ingredientMatchValidation, Yummly.page);
+			Yummly.getDataFromApi(Yummly.ingredients, Yummly.checkPageNumber, Yummly.page);
 			// Scroll to top of next page
 			document.body.scrollTop = document.documentElement.scrollTop = 225;
+			// if (Yummly.totalResults % Yummly.responseResult === 0) {
+			// 	$('.moreResults').show();
+			// }
 		});
 	},
 	setup: function() {

@@ -46,21 +46,16 @@ form {
 h3 {
 
 }
+img {
+	border-radius: 50%	;
+}
 .searchSection li, .ingredientList ul {
 	margin: 0 0 0 25px;
 }
-.resultsContainer {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-}
-.js-recipeResults {
-	width: 33%;
-}
-/*why does this need to have li to work, something with jQuery being responsible for inserting the li? 
+/*why does this need to have li to work, something with jQuery being responsible for inserting the li? */
 .js-recipeResults li {
 	list-style-type: none;
-}*/
+}
 span {
 	font-weight: bold;
 }
