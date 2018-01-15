@@ -1,16 +1,8 @@
-page handling goal: if there are less than x number of matches remaining, hide the more results button. 
 
-considerations:
-	- displayCounter will use this to know how many results to limit
-	- probably do page validation & page number updating after results buttons are selected
-
-players:
-	- page counter 
-	- resultsPerPage counter
-	- resultsLimiter that controls how many times displayRecipeData runs
-	- moreResults button
-	- lessResults button
-	- new function that's called by results button instead of recipeMatchValidation function
-
-things to do sidenote:
-	- replace 9 with resultsPerPage variable so the number can be changed from one place
+to do
+- add http to recipe site urls that don't have it or just remove links?
+- comma formatting function
+- grey out Clear and Submit buttons until ingredients are added
+- make ingredient list more noticable?
+- when pressing clear ingredients, don't also remove previously returned results. Clear results once more or previous results are selected	
+- question in removeIngredient function

@@ -43,12 +43,12 @@ header p {
 form {
 	margin: 5px 0 0 0;
 }
-h3 {
+/*h3 {
 
 }
 img {
 	border-radius: 50%	;
-}
+}*/
 .searchSection li, .ingredientList ul {
 	margin: 0 0 0 25px;
 }
@@ -56,22 +56,28 @@ img {
 .js-recipeResults li {
 	list-style-type: none;
 }
-span {
-	font-weight: bold;
+form {
+	margin: 8px 0;
 }
 input[type='text'] {
 	height: 25px;
 	width: 200px;
 }
 button {
-	padding: 5px;
+	/*padding: 5px;
 	background-color: #5877f0;
 	border-radius: 10px;
 	font-size: .8em;
-	color: white;
+	color: white;*/
 
 }
 .btn {
 	margin: 5px 0 10px;
 	display: none;
+}
+.ingredientList p {
+	display: none;
+}
+span {
+	font-weight: bold;
 }
