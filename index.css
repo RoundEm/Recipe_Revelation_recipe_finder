@@ -32,20 +32,25 @@ main h2 {
 header nav {
 	font-family: 'Julius Sans One', sans-serif;
 	width: 100%;
-	background-color: #9eb0f6;
+	background-color: #3b3b3b;
 	color: white;
 	padding: 10px;
 	text-align: center;
 }
 header p {		
-	margin: 0 0 15px;
+	margin: 7px 0 15px;
+	font-size: 1.25em;
+}
+form label {
+	font-size: 1.25em;
 }
 form {
 	margin: 5px 0 0 0;
 }
-/*img {
-	border-radius: 50%	;
-}*/
+img {
+	/*border-radius: 50%;*/
+	margin: 0 0 10px;
+}
 .searchSection li, .ingredientList ul {
 	margin: 0 0 0 25px;
 }
@@ -60,19 +65,31 @@ input[type='text'] {
 	height: 25px;
 	width: 200px;
 }
+.ingredientList ul {
+	background-color: #3b3b3b;
+	width: 15%;
+	color: white;
+}
 header.searchResponse {
 	margin: 7px 0;
 }
+.resultsContainer {
+	width: 700px;
+}
 button {
-	/*padding: 5px;
-	background-color: #5877f0;
+	padding: 5px;
+	/*background-color: #5877f0;
 	border-radius: 10px;
 	font-size: .8em;
 	color: white;*/
 
 }
-.btn {
-	margin: 5px 0 10px;
+/*how to only enable rule for non-disabled buttons*/
+button:hover {
+	cursor: pointer;
+}
+.resultsBtn {
+	margin: 5px 0 25px;
 	display: none;
 }
 /*.ingredientList p {

@@ -1,8 +1,4 @@
 
 to do
 - add http to recipe site urls that don't have it or just remove links?
-- comma formatting function
-- grey out Clear and Submit buttons until ingredients are added
-- make ingredient list more noticable?
-- when pressing clear ingredients, don't also remove previously returned results. Clear results once more or previous results are selected	
-- question in removeIngredient function
+- don't allow cursor to change to pointer when buttons are disabled

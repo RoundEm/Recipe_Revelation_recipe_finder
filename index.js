@@ -64,7 +64,6 @@ const Yummly = {
 		document.body.scrollTop = document.documentElement.scrollTop = 225;
 	},
 	displayRecipeData: function() {
-		// let ingredientsProper = Yummly.formatIngredients();
 		if (Yummly.displayCounter === Yummly.resultsLimiter) {
 			for (let i = 0; i < Yummly.resultData.matches.length; i++) {
 				let recipeName = Yummly.resultData.matches[i].name;
@@ -72,11 +71,18 @@ const Yummly = {
 				let sourceRecipeUrl = Yummly.resultData.matches[i].source.sourceRecipeUrl;
 				let sourceSiteUrl = Yummly.resultData.matches[i].source.sourceSiteUrl;
 				console.log('sourceSiteUrl:', sourceSiteUrl);
-				let recipeIngredients = Yummly.resultData.matches[i].ingredients;
+				// let recipeIngredients = Yummly.resultData.matches[i].ingredients;
 				let recipeTime = `${Yummly.resultData.matches[i].totalTimeInSeconds / 60} minutes`;
+				let ingredientString = '';
+				for (let j = 0; j < Yummly.resultData.matches[i].ingredients.length; j++) {
+					ingredientString += Yummly.resultData.matches[i].ingredients[j];
+					if (Yummly.resultData.matches[i].ingredients.length - 1 !== j) {
+						ingredientString += ', ';
+					}
+				}	
 				$('.js-recipeResults').append(
 					`<p><span class="bold">${recipeName}</span> by <a href="${sourceSiteUrl}" target="_blank">${sourceName}</a></p>
-					<p><span class="bold">Ingredients:</span> ${recipeIngredients}</p>
+					<p><span class="bold">Ingredients:</span> ${ingredientString}</p>
 					<p><span class="bold">Total Time:</span> ${recipeTime}</p>
 					<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`
 				);
@@ -122,13 +128,16 @@ const Yummly = {
 				 $('button.js-clearBtn, button.js-findRecipesBtn').prop('disabled', true);
 				 Yummly.ingredients = [];
 				 console.log('Yummly.ingredients clear:', Yummly.ingredients);
-				 $('.ingredientList p').empty();
+				 $('.ingredientList p').empty	();
 			}
 		});
-		
 	},
 	findRecipes: function() {
 		$('.js-findRecipesBtn').click(function() {
+			// clears prior results
+			$('.js-recipeResults').empty();
+			// resets displayCounter so that new results show
+			Yummly.displayCounter = 0;
 			Yummly.getDataFromApi(Yummly.ingredients, Yummly.ingredientMatchValidation);
 			if (Yummly.page > 0) {
 				Yummly.page = 0;
@@ -175,17 +184,6 @@ const Yummly = {
 		document.body.scrollTop = document.documentElement.scrollTop = 225;
 		Yummly.getRecipeDataFromApi();
 	},
-	// formatIngredients: function() {
-	// 	// format ingredient list to have proper space after each comma between ingredients
-	// 	let ingredientString = '';
-	// 		for (let i = 0; i < data.matches[i].ingredients.length; j++) {
-	// 			ingredientString += data.matches[i].ingredients[j];
-	// 			if (data.matches[i].ingredients.length - 1 !== j) {
-	// 				ingredientString += ', ';
-	// 			}
-	// 		}
-	// 	return ingredientString;
-	// },
 	paginationButtonFilter: function() {
 		if (Yummly.page > 0) {
 			$('.priorResults').show();
