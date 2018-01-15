@@ -43,10 +43,7 @@ header p {
 form {
 	margin: 5px 0 0 0;
 }
-/*h3 {
-
-}
-img {
+/*img {
 	border-radius: 50%	;
 }*/
 .searchSection li, .ingredientList ul {
@@ -63,6 +60,9 @@ input[type='text'] {
 	height: 25px;
 	width: 200px;
 }
+header.searchResponse {
+	margin: 7px 0;
+}
 button {
 	/*padding: 5px;
 	background-color: #5877f0;
@@ -75,9 +75,9 @@ button {
 	margin: 5px 0 10px;
 	display: none;
 }
-.ingredientList p {
+/*.ingredientList p {
 	display: none;
-}
+}*/
 span {
 	font-weight: bold;
 }
