@@ -14,7 +14,7 @@ const Yummly = {
 			_app_id: 'aa298305',
 			_app_key: 'f1568a729fd303537771dd46dbc3f91b',
 			allowedIngredient: allowedIngredient,
-			maxResult: 9,
+			maxResult: Yummly.responseResult,
 			start: start,
 		}
 		$.getJSON(Yummly.INGREDIENT_URL, apiAuth, callback);
@@ -81,9 +81,9 @@ const Yummly = {
 					}
 				}	
 				$('.js-recipeResults').append(
-					`<p><span class="bold">${recipeName}</span> by <a href="${sourceSiteUrl}" target="_blank">${sourceName}</a></p>
-					<p><span class="bold">Ingredients:</span> ${ingredientString}</p>
-					<p><span class="bold">Total Time:</span> ${recipeTime}</p>
+					`<p><span>${recipeName}</span> by <a href="${sourceSiteUrl}" target="_blank">${sourceName}</a></p>
+					<p><span>Ingredients:</span> ${ingredientString}</p>
+					<p><span>Total Time:</span> ${recipeTime}</p>
 					<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`
 				);
 			}
@@ -91,9 +91,7 @@ const Yummly = {
 	},
 	collectIngredients: function() {
 		$('.js-ingredients-form').submit(function() {
-			event.preventDefault();
-			// hide any previously successful results and hide More Results button
-			// $('.js-recipeResults').empty();		
+			event.preventDefault();	
 			$('.moreResults').hide();
 			$('.priorResults').hide(); 
 			$('button.js-clearBtn, button.js-findRecipesBtn').prop('disabled', false);
@@ -121,14 +119,14 @@ const Yummly = {
 			console.log('Yummly.ingredients.length before:', Yummly.ingredients.length);
 // why doesn't ingredientsLength - 1 work here
 			ingredientsLength--;
-			// remove the one selected from the array. See line 111 (7 lines above this one)
+			// remove the ingredient selected from the array
 			Yummly.ingredients.splice(index, 1);
 			console.log('ingredientsLength after splice:', ingredientsLength);
 			if (ingredientsLength === 0) {
 				 $('button.js-clearBtn, button.js-findRecipesBtn').prop('disabled', true);
 				 Yummly.ingredients = [];
 				 console.log('Yummly.ingredients clear:', Yummly.ingredients);
-				 $('.ingredientList p').empty	();
+				 $('.ingredientList p').empty();
 			}
 		});
 	},
@@ -149,15 +147,13 @@ const Yummly = {
 		$('.js-clearBtn').click(function() {
 			$('.ingredientList ul').empty();
 			$('button.js-clearBtn, button.js-findRecipesBtn').prop('disabled', true);
-			Yummly.ingredients = [];
+			// Yummly.ingredients = [];
 			Yummly.displayCounter = 0;
 			$('.ingredientList p').empty();
 		});
 	},
 	ingredientMatchValidation: function(data) {
-		// TODO - check if variable is defined using'typeof'
-		// check if matches are found
-		if (data.matches.length === 0) {
+		if (typeof data.matches !== 'undefined' && data.matches.length === 0) {
 			$('.searchResponse').html('Sorry, the ingredients entered returned 0 hits. Please select clear and try a different search.');
 		} else {
 			$('.searchResponse').html(`Success! ${data.attribution.html}`);

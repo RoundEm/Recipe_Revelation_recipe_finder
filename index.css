@@ -47,16 +47,17 @@ form label {
 form {
 	margin: 5px 0 0 0;
 }
-img {
+.js-recipeResults img {
 	/*border-radius: 50%;*/
 	margin: 0 0 10px;
+	border: 1px solid #3b3b3b;
+}
+.js-recipeResults img:hover {
+	opacity: .6;
+	/*border: 2px solid #1E90FF;*/
 }
 .searchSection li, .ingredientList ul {
 	margin: 0 0 0 25px;
-}
-/*why does this need to have li to work, something with jQuery being responsible for inserting the li? */
-.js-recipeResults li {
-	list-style-type: none;
 }
 form {
 	margin: 8px 0;
@@ -70,11 +71,18 @@ input[type='text'] {
 	width: 15%;
 	color: white;
 }
+.ingredientList li {
+	padding: 0 0 0 5px;
+}
+.ingredientList li:hover {
+	background-color: #ff4c4c;
+	cursor: pointer;
+}
 header.searchResponse {
 	margin: 7px 0;
 }
 .resultsContainer {
-	width: 700px;
+	width: 600px;
 }
 button {
 	padding: 5px;
@@ -82,19 +90,17 @@ button {
 	border-radius: 10px;
 	font-size: .8em;
 	color: white;*/
-
 }
-/*how to only enable rule for non-disabled buttons*/
 button:hover {
 	cursor: pointer;
+}
+button:disabled {
+	cursor: not-allowed;
 }
 .resultsBtn {
 	margin: 5px 0 25px;
 	display: none;
 }
-/*.ingredientList p {
-	display: none;
-}*/
 span {
 	font-weight: bold;
 }

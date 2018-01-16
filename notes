@@ -1,4 +1,6 @@
 
 to do
 - add http to recipe site urls that don't have it or just remove links?
-- don't allow cursor to change to pointer when buttons are disabled
+- center align Yummly logo on vertical access?
+- check to ensure proper attribution to recipe sources
+- if you clear individual ingredients the more results and prior results won't work properly (they'll search all recipes I think)
