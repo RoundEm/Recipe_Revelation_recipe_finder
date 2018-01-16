@@ -69,7 +69,7 @@ const Yummly = {
 				let recipeName = Yummly.resultData.matches[i].name;
 				let sourceName = Yummly.resultData.matches[i].sourceDisplayName;
 				let sourceRecipeUrl = Yummly.resultData.matches[i].source.sourceRecipeUrl;
-				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`: 'No Recipe Image Found');
+				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`: `Sorry, no image available. Here's a <a href=${sourceRecipeUrl}>link</a> to the recipe source.`);
 				// TODO: format urls without http:// to have it
 				// let sourceSiteUrl = Yummly.resultData.matches[i].source.sourceSiteUrl;
 				// console.log('sourceSiteUrl:', sourceSiteUrl);
@@ -166,7 +166,8 @@ const Yummly = {
 		if (typeof data.matches !== 'undefined' && data.matches.length === 0) {
 			$('.searchResponse').html('Sorry, the ingredients entered returned 0 hits. Please select clear and try a different search.');
 		} else {
-			$('.searchResponse').html(`Success! ${data.attribution.html}`);
+			$('.searchResponse').html(`<em><strong>Success! ${data.attribution.html} </br>
+				Select recipe images to go to the source recipe webpage</strong></em>`);
 			$('.moreResults').show();
 			$('.findRecipes').hide();
 			Yummly.resultData = data;
