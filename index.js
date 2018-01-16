@@ -69,6 +69,7 @@ const Yummly = {
 				let recipeName = Yummly.resultData.matches[i].name;
 				let sourceName = Yummly.resultData.matches[i].sourceDisplayName;
 				let sourceRecipeUrl = Yummly.resultData.matches[i].source.sourceRecipeUrl;
+				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`: '');
 				let sourceSiteUrl = Yummly.resultData.matches[i].source.sourceSiteUrl;
 				console.log('sourceSiteUrl:', sourceSiteUrl);
 				// let recipeIngredients = Yummly.resultData.matches[i].ingredients;
@@ -84,7 +85,7 @@ const Yummly = {
 					`<p><span>${recipeName}</span> by <a href="${sourceSiteUrl}" target="_blank">${sourceName}</a></p>
 					<p><span>Ingredients:</span> ${ingredientString}</p>
 					<p><span>Total Time:</span> ${recipeTime}</p>
-					<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`
+					${imageTag}`
 				);
 			}
 		}	
