@@ -83,7 +83,7 @@ const Yummly = {
 					}
 				}	
 				$('.js-recipeResults').append(
-					`<p class="first"><span>${recipeName}</span> by ${sourceName}</p>
+					`<p class="first"><span>${recipeName}</span> from <em>${sourceName}</em></p>
 					<p><span>Ingredients:</span> ${ingredientString}</p>
 					<p><span>Total Time:</span> ${recipeTime}</p>
 					${imageTag}`
