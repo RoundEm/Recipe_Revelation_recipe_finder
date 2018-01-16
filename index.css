@@ -4,8 +4,8 @@
 	padding: 0;
 }
 html {
-	background-image: url('cookware.jpg');
-	background-repeat: no-repeat;
+	/*background-image: url('cookware.jpg');
+	background-repeat: no-repeat;*/
 	/*background-size:100% 100%;
 	width: 100%;
     height: 100%;
@@ -26,45 +26,88 @@ main h1 {
 	font-size: 1.8em;
 	margin: 20px 0 5px;
 }
-main h2, main h3 {
+main h2 {
 	margin: 20px 0 0;
 }
 header nav {
 	font-family: 'Julius Sans One', sans-serif;
 	width: 100%;
-	background-color: #9eb0f6;
+	background-color: #3b3b3b;
 	color: white;
 	padding: 10px;
 	text-align: center;
 }
-header p {
-	margin: 0 0 15px;
+header p {		
+	margin: 7px 0 15px;
+	font-size: 1.25em;
 }
-.ingredientList ul {
+form label {
+	font-size: 1.25em;
+}
+form {
+	margin: 5px 0 0 0;
+}
+.resultsContainer p.first {
+	margin: 15px 0 0 0;
+}
+.js-recipeResults p {
+	/*border-radius: 50%;*/
+	/*margin: 0 0 10px;
+	border: 1px solid #3b3b3b;*/
+}
+.js-recipeResults img:hover {
+	opacity: .6;
+	/*border: 2px solid #1E90FF;*/
+}
+.searchSection li, .ingredientList ul {
 	margin: 0 0 0 25px;
 }
-.resultResponse {
-	padding: 10px 0;
-}
-.resultResponse p {
-	margin: 0;
-}
-span {
-	font-weight: bold;
+form {
+	margin: 8px 0;
 }
 input[type='text'] {
 	height: 25px;
 	width: 200px;
 }
+.ingredientList ul {
+	background-color: #3b3b3b;
+	width: 15%;
+	color: white;
+}
+.ingredientList li {
+	padding: 0 0 0 5px;
+}
+.ingredientList li:hover {
+	background-color: #ff4c4c;
+	cursor: pointer;
+}
+.ingredientList p {
+	width: 33%;
+	margin: 0 0 0 25px;
+}
+header.searchResponse {
+	margin: 7px 0;
+}
+.resultsContainer {
+	width: 600px;
+}
 button {
 	padding: 5px;
-	background-color: #5877f0;
+	/*background-color: #5877f0;
 	border-radius: 10px;
 	font-size: .8em;
-	color: white;
-
+	color: white;*/
 }
-.moreResults {
-	margin: 5px 0 10px;
+button:hover {
+	cursor: pointer;
+}
+button:disabled {
+	cursor: not-allowed;
+}
+.resultsBtn {
+	margin: 5px 0 25px;
 	display: none;
+}
+span {
+	font-weight: bold;
 }

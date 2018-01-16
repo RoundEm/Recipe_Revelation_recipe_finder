@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>My Site Name</title>
-	<!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"> --> 
+	<title>Recipe Revelation</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
@@ -11,40 +10,59 @@
 
 		<header role="banner">
 			<nav role="navigation">
-				<h1>MySiteName</h1>
+				<h1>Recipe Revelation</h1>
 			</nav>
 		</header>
 
 	<main role="main">
 
-		<section class="recipeFinder">
-			<header role="banner">
-				<h1>Reverse Recipe Finder</h1>
-				<p>Do you ever find yourself wondering what meals you can cook with the ingredients available in your kitchen. Do you ever feel uninspired in the kitchen and just want some random ideas for tasty recipes that utilize specific ingredients? If so then you're in luck! <i>MySiteName</i>, which is powered by the recipe aggregator website, <a href="https://www.yummly.com/">Yummly</a>, allows you to retrieve full and delicious recipes from some of <a href="https://developer.yummly.com/#sources">the most popular food blogs and recipe sites</a>, just by searching for one or more ingredients. Successfully returned recipes will include a minimum of all the ingredients you search for. For best results, keep ingredient names general and don't combine separate ingredients into one line.</p>
-			</header>
+		<header role="banner">
+			<p>Do you ever find yourself pondering what meals you can prepare with specific ingredients available in your kitchen? Do you ever feel uninspired in the kitchen and just want some random ideas for tasty and popular recipes that utilize specific ingredients? If so, then you've come to the right place! <i>Recipe Revelation</i>, which is powered by the recipe aggregator website, <a href="https://www.yummly.com/" target="_blank">Yummly</a>, is a reverse recipe finder that allows you to retrieve full and delicious recipes from some of <a href="https://developer.yummly.com/#sources" target="_blank">the most popular food blogs and recipe sites</a> just by searching for one or more ingredient. Successfully returned recipes will include a minimum of all the ingredients you search for.</p>
+		</header>
+
+		<section class="searchSection">
+			<p>Tips for best search results:</p>
+			<ul> 
+				<li>Keep ingredient names general</li>
+				<li>Don't combine separate ingredients into one entry</li>
+				<li>Don't search by methods of preparation or cooking technique</li>
+				<li>If you're having trouble finding a recipe check ingredient spelling or try entering less ingredients</li>
+			</ul>
 			<form role="form" class="js-ingredients-form">
 				<label for="ingredients">Enter Ingredients one-at-a-time:</label>
 				<input type="text" name="ingredients" class="js-ingredient-query" required>
 				<button type="submit">Add Ingredient</button>
 			</form>
-			<div class="ingredientList">	
+			<div class="ingredientList" aria-live="assertive">
+				<p>
+					
+				</p>
 				<ul>
+
 				</ul>
 			</div>
-			<h2>Clear Ingredients</h2>
-			<button type="submit" class="js-clearBtn">Clear</button>
+			<h2>Clear All Ingredients &amp Recipe Results</h2>
+			<button class="js-clearBtn" disabled>Clear</button>
+		</section>
+
+		<div class="findRecipes">
 			<h2>Find Recipes!</h2>
-			<button class="js-findRecipesBtn">Submit</button>
-			<div class="resultResponse">
+			<button class="js-findRecipesBtn" disabled>Submit</button>
+		</div>
+
+		<section aria-live="assertive">
+			<header role="banner" class="searchResponse"></header>
+			<div class="resultsContainer">
+				<div class="js-recipeResults">
+					
+				</div>
 			</div>
-			<div class="js-recipeResults">
-			</div>
-			<button class="moreResults">More Results</button>
+			<button class="resultsBtn priorResults">Prior Results</button>
+			<button class="resultsBtn moreResults">More Results</button>
 		</section>
 
 	</main>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="getIngredients.js"></script>
-	<!-- <script type="text/javascript" src="getRecipe.js"></script> -->
+	<script type="text/javascript" src="index.js"></script>
 </body>
 </html>
