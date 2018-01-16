@@ -1,6 +1,8 @@
 
 to do
-- add http to recipe site urls that don't have it or just remove links?
-- center align Yummly logo on vertical access?
+- insert space or some kind of placeholder when an image isn't returned
+- figure out how to limit results when on the last page of results
 - check to ensure proper attribution to recipe sources
-- if you clear individual ingredients the more results and prior results won't work properly (they'll search all recipes I think)
+- NOT IMPORTANT: add http to recipe site urls that don't have it or just remove links?
+- NOT IMPORTANT: center align Yummly logo on vertical access?
+

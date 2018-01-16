@@ -78,6 +78,10 @@ input[type='text'] {
 	background-color: #ff4c4c;
 	cursor: pointer;
 }
+.ingredientList p {
+	width: 33%;
+	margin: 0 0 0 25px;
+}
 header.searchResponse {
 	margin: 7px 0;
 }

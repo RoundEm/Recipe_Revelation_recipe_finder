@@ -100,7 +100,7 @@ const Yummly = {
 			const queryTarget = $(this).find('.js-ingredient-query');
 			const queryValue = queryTarget.val().toLowerCase();
 			// display ingredient to list in browser and add it to array
-			$('.ingredientList p').html('Select name of added ingredient to remove it');
+			$('.ingredientList p').html('Select the name of added ingredients to remove them. NOTE: Previously returned recipes will be cleared out if you remove any ingredients.');
 			$('.ingredientList ul').append(`<li>${queryValue}</li>`);
 			Yummly.ingredients.push(queryValue);
 			// encodeURI replaces spaces in ingredients (e.g. green beans with green%20beans)
@@ -115,19 +115,21 @@ const Yummly = {
 			let index = $(this).index();
 			$(this).remove();
 			console.log('index:', index);
-			// console.log('Yummly.ingredients.length:', Yummly.ingredients.length);
+			$('.js-recipeResults').empty();
+			$('.searchResponse').empty();
+			$('.moreResults').hide();
+			$('.priorResults').hide();
 			let ingredientsLength = Yummly.ingredients.length;
 			console.log('Yummly.ingredients.length before:', Yummly.ingredients.length);
-// why doesn't ingredientsLength - 1 work here
 			ingredientsLength--;
 			// remove the ingredient selected from the array
 			Yummly.ingredients.splice(index, 1);
 			console.log('ingredientsLength after splice:', ingredientsLength);
 			if (ingredientsLength === 0) {
-				 $('button.js-clearBtn, button.js-findRecipesBtn').prop('disabled', true);
-				 Yummly.ingredients = [];
-				 console.log('Yummly.ingredients clear:', Yummly.ingredients);
-				 $('.ingredientList p').empty();
+				$('button.js-clearBtn, button.js-findRecipesBtn').prop('disabled', true);
+				Yummly.ingredients = [];
+				console.log('Yummly.ingredients clear:', Yummly.ingredients);
+				$('.ingredientList p').empty();
 			}
 		});
 	},
@@ -147,10 +149,15 @@ const Yummly = {
 	clearIngredientList: function() {
 		$('.js-clearBtn').click(function() {
 			$('.ingredientList ul').empty();
-			$('button.js-clearBtn, button.js-findRecipesBtn').prop('disabled', true);
-			// Yummly.ingredients = [];
-			Yummly.displayCounter = 0;
 			$('.ingredientList p').empty();
+			$('.js-recipeResults').empty();
+			$('.searchResponse').empty();
+			$('.moreResults').hide();
+			$('.priorResults').hide();
+			$('button.js-clearBtn, button.js-findRecipesBtn').prop('disabled', true);
+			Yummly.ingredients = [];
+			Yummly.displayCounter = 0;
+			
 		});
 	},
 	ingredientMatchValidation: function(data) {
