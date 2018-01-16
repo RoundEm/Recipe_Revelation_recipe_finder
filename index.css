@@ -50,10 +50,10 @@ form {
 .resultsContainer p.first {
 	margin: 15px 0 0 0;
 }
-.js-recipeResults p {
-	/*border-radius: 50%;*/
-	/*margin: 0 0 10px;
-	border: 1px solid #3b3b3b;*/
+.js-recipeResults img {
+	/*border-radius: 50%;
+	margin: 0 0 10px;*/
+	border: 1px solid #3b3b3b;
 }
 .js-recipeResults img:hover {
 	opacity: .6;
