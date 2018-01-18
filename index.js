@@ -37,17 +37,17 @@ const Yummly = {
 		}
 	},
 	processRecipeData: function(data) {
-		console.groupCollapsed(`processRecipeData: ${data.id}`);
-		console.log('data:', data);
+		// console.groupCollapsed(`processRecipeData: ${data.id}`);
+		// console.log('data:', data);
 		// loop over data and look at ID of data and match it to an item from the result data array
 		let resultDataIndex = Yummly.resultDataIndexById(data.id);
-		console.log('resultDataIndex:', resultDataIndex);
+		// console.log('resultDataIndex:', resultDataIndex);
 		for (let property in data) {
 			if (data.hasOwnProperty(property)) {
-				console.log(`Yummly.resultData.matches[${resultDataIndex}]:`, Yummly.resultData.matches[resultDataIndex]);
+				// console.log(`Yummly.resultData.matches[${resultDataIndex}]:`, Yummly.resultData.matches[resultDataIndex]);
 				let objectKeys = Object.keys(Yummly.resultData.matches[resultDataIndex]);
-				console.log('objectKeys:', objectKeys);
-				console.log('property:', property);
+				// console.log('objectKeys:', objectKeys);
+				// console.log('property:', property);
 				// if property is not in existing keys of data, add it
 				let includesProperty = (objectKeys).includes(property);
 				if (!includesProperty) {
@@ -55,8 +55,8 @@ const Yummly = {
     			}
 		    }
 		}
-		console.log('all info added to Yummly.resultData:', Yummly.resultData);
-		console.groupEnd();
+		// console.log('all info added to Yummly.resultData:', Yummly.resultData);
+		// console.groupEnd();
 		Yummly.displayCounter++;
 		console.log('Yummly.displayCounter:', Yummly.displayCounter);
 		Yummly.displayRecipeData();
@@ -64,6 +64,8 @@ const Yummly = {
 		document.body.scrollTop = document.documentElement.scrollTop = 225;
 	},
 	displayRecipeData: function() {
+		console.log('Yummly.resultsLimiter:', Yummly.resultsLimiter);
+		console.log('Yummly.displayCounter:', Yummly.displayCounter);
 		if (Yummly.displayCounter === Yummly.resultsLimiter) {
 			for (let i = 0; i < Yummly.resultData.matches.length; i++) {
 				let recipeName = Yummly.resultData.matches[i].name;
@@ -83,10 +85,10 @@ const Yummly = {
 					}
 				}	
 				$('.js-recipeResults').append(
-					`<p class="first"><span>${recipeName}</span> from <em>${sourceName}</em></p>
+					`<div class="recipe"><p class="first"><span>${recipeName}</span> from <em>${sourceName}</em></p>
 					<p><span>Ingredients:</span> ${ingredientString}</p>
 					<p><span>Total Time:</span> ${recipeTime}</p>
-					${imageTag}`
+					${imageTag}</div>`
 				);
 			}
 		}	
@@ -122,15 +124,15 @@ const Yummly = {
 			$('.priorResults').hide();
 			$('.findRecipes').show();
 			let ingredientsLength = Yummly.ingredients.length;
-			console.log('Yummly.ingredients.length before:', Yummly.ingredients.length);
+			// console.log('Yummly.ingredients.length before:', Yummly.ingredients.length);
 			ingredientsLength--;
 			// remove the ingredient selected from the array
 			Yummly.ingredients.splice(index, 1);
-			console.log('ingredientsLength after splice:', ingredientsLength);
+			// console.log('ingredientsLength after splice:', ingredientsLength);
 			if (ingredientsLength === 0) {
 				$('button.js-clearBtn, button.js-findRecipesBtn').prop('disabled', true);
 				Yummly.ingredients = [];
-				console.log('Yummly.ingredients clear:', Yummly.ingredients);
+				// console.log('Yummly.ingredients clear:', Yummly.ingredients);
 				$('.ingredientList p').empty();
 			}
 		});
@@ -173,8 +175,8 @@ const Yummly = {
 			Yummly.resultData = data;
 			Yummly.totalResults = data.totalMatchCount;
 			Yummly.resultsRemaining = data.totalMatchCount;
-			console.log('totalResults:', Yummly.totalResults);
-			console.log('Yummly.resultData', Yummly.resultData);
+			// console.log('totalResults:', Yummly.totalResults);
+			// console.log('Yummly.resultData', Yummly.resultData);
 			Yummly.getRecipeDataFromApi();
 		}
 	},
@@ -215,7 +217,6 @@ const Yummly = {
 			console.log('page Number prior:', Yummly.page);
 			$('.js-recipeResults').empty();
 			Yummly.paginationButtonFilter();
-			console.log('test test');
 			Yummly.getDataFromApi(Yummly.ingredients, Yummly.checkPageNumber, Yummly.page);
 		});
 	},

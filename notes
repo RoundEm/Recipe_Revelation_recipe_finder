@@ -2,9 +2,13 @@
 to do
 - insert space or some kind of placeholder when an image isn't returned.
 	A. if blank include link to recipe page
-- remove link to source url homepage
 - figure out how to limit results when on the last page of results
 - check to ensure proper attribution to recipe sources
 - NOT IMPORTANT: add http to recipe site urls that don't have it or just remove links?
 - NOT IMPORTANT: center align Yummly logo on vertical access?
 
+
+nice features to add:
+- filter by vegetarian
+- autocomplete ingredient names or validate if they're in the database
+- 
