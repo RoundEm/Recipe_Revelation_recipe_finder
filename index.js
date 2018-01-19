@@ -85,8 +85,8 @@ const Yummly = {
 					}
 				}	
 				$('.js-recipeResults').append(
-					`<div class="recipe"><p class="first"><span>${recipeName}</span> from <em>${sourceName}</em></p>
-					<p><span>Ingredients:</span> ${ingredientString}</p>
+					`<div><a href="imageTag"><p class="templateRecipeName"><span>${recipeName}</span></a> from <em>${sourceName}</em></p>
+					<p class="templateIngredients"><span>Ingredients:</span> ${ingredientString}</p>
 					<p><span>Total Time:</span> ${recipeTime}</p>
 					${imageTag}</div>`
 				);
@@ -103,7 +103,7 @@ const Yummly = {
 			const queryTarget = $(this).find('.js-ingredient-query');
 			const queryValue = queryTarget.val().toLowerCase();
 			// display ingredient to list in browser and add it to array
-			$('.ingredientList p').html('Select the name of added ingredients to remove them. NOTE: Previously returned recipes will be cleared out if you remove any ingredients.');
+			$('.ingredientList div').html('<p>Select the name of added ingredients to remove them. Previously returned recipes will be cleared out if you remove any ingredients.</p>');
 			$('.ingredientList ul').append(`<li>${queryValue}</li>`);
 			Yummly.ingredients.push(queryValue);
 			// encodeURI replaces spaces in ingredients (e.g. green beans with green%20beans)
@@ -133,7 +133,7 @@ const Yummly = {
 				$('button.js-clearBtn, button.js-findRecipesBtn').prop('disabled', true);
 				Yummly.ingredients = [];
 				// console.log('Yummly.ingredients clear:', Yummly.ingredients);
-				$('.ingredientList p').empty();
+				$('.ingredientList div').empty();
 			}
 		});
 	},
@@ -153,7 +153,7 @@ const Yummly = {
 	clearIngredientList: function() {
 		$('.js-clearBtn').click(function() {
 			$('.ingredientList ul').empty();
-			$('.ingredientList p').empty();
+			$('.ingredientList div').empty();
 			$('.js-recipeResults').empty();
 			$('.searchResponse').empty();
 			$('.moreResults').hide();

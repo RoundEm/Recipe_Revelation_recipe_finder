@@ -4,30 +4,7 @@
 	padding: 0;
 }
 html {
-	/*background-image: url('cookware.jpg');
-	background-repeat: no-repeat;*/
-	/*background-size:100% 100%;
-	width: 100%;
-    height: 100%;
-    max-height: 100%;*/   
-}
-main {
-	margin: 0 15px;
-	font-family: 'Nunito', sans-serif;
-}
-header h1 {
-	margin: 0 0 5px;
-	font-size: 2em;
-}
-header ul {
-	font-size: 1.25em;
-}
-main h1 {
-	font-size: 1.8em;
-	margin: 20px 0 5px;
-}
-main h2 {
-	margin: 20px 0 0;
+	font-family: 'Nunito', sans-serif;  
 }
 header nav {
 	font-family: 'Julius Sans One', sans-serif;
@@ -37,30 +14,60 @@ header nav {
 	padding: 10px;
 	text-align: center;
 }
-header p {		
-	margin: 7px 0 15px;
-	font-size: 1.25em;
+header p {
+	font-size: 1.15em;
+	background-color: #dedede;
+	margin: 0;
+	padding: 10px 25px;
+}
+main {
+	padding: 10px 25px;
+}
+header h1 {
+	margin: 0 0 5px;
+	font-size: 2em;
+}
+main h1 {
+	font-size: 1.8em;
+	margin: 20px 0 5px;
+}
+main h2 {
+	margin: 20px 0 0;
 }
 form label {
-	font-size: 1.25em;
+	font-size: 1.5em;
 }
 form {
 	margin: 5px 0 0 0;
 }
-.resultsContainer p.first {
-	margin: 15px 0 0 0;
+.resultsContainer p {
+	padding: 5px;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+}
+.resultsContainer p.templateRecipeName {
+	background-color: #ffc87a;
+}
+.templateIngredients {
+	background-color: #99df99;
+}
+.resultsContainer {
+	/*border: 1px solid black;*/	
 }
 .js-recipeResults img {
-	/*border-radius: 50%;
-	margin: 0 0 10px;*/
-	border: 1px solid #3b3b3b;
+	border: 1px solid black;
+}
+.js-recipeResults a {
+	text-decoration: none;
+	color: ;
 }
 .js-recipeResults img:hover {
 	opacity: .6;
 	/*border: 2px solid #1E90FF;*/
 }
 .searchSection li, .ingredientList ul {
-	margin: 0 0 0 25px;
+	margin: 0 0 0 35px;
 }
 .searchResponse {
 	color: #e65b00;
@@ -74,16 +81,23 @@ form {
 	margin: 8px 0;
 }
 input[type='text'] {
-	height: 25px;
-	width: 200px;
+	height: 35px;
+	width: 250px; 
+	/*vertical-align: text-bottom;*/
+	font-size: 1em;
+	padding: 7px;
 }
 .ingredientList ul {
-	background-color: #3b3b3b;
-	width: 15%;
+	width: 33%;
 	color: white;
 }
 .ingredientList li {
-	padding: 0 0 0 5px;
+	list-style-type: none;
+	margin: 3px 0;
+	padding: 6px 0;
+	background-color: #3b3b3b;
+	text-align: center;
+	font-size: 1.1em;
 }
 .ingredientList li:hover {
 	background-color: #ff4c4c;
@@ -91,26 +105,34 @@ input[type='text'] {
 }
 .ingredientList p {
 	width: 33%;
-	margin: 0 0 0 25px;
+	margin: 0 0 0 35px;
+	padding: 5px 10px;
+	background-color: yellow;
 }
 header.searchResponse {
 	margin: 7px 0;
 }
 .resultsContainer {
-	width: 600px;
+	width: 362px;
 }
 button {
-	padding: 5px;
+	padding: 7px;
+	margin: 5px 0;
+	font-size: 1.05em;
+	border-radius: 5px;
+	background-color: #70DB93;
 	/*background-color: #5877f0;
 	border-radius: 10px;
 	font-size: .8em;
 	color: white;*/
 }
-button:hover {
+button:hover:enabled {
 	cursor: pointer;
+	background-color: #7FFFD4;
 }
-button:disabled {
+button:disabled  {
 	cursor: not-allowed;
+	background-color: #dedede;
 }
 .resultsBtn {
 	margin: 5px 0 25px;
@@ -119,3 +141,4 @@ button:disabled {
 span {
 	font-weight: bold;
 }
+
