@@ -21,17 +21,17 @@
   margin: 0 auto;
 }
 /* Clearfix */
-/*.row::before,
+.row::before,
 .row::after {
   display: table;
   content: '';
 }
 .row::after {
   clear: both;
-}*/
+}
 .col-3, .col-4, .col-6, .col-12 {
-  display: inline-block;
-  /*float: left;*/
+ /* display: inline-block;*/
+  float: left;
   /* Gutters:
    * Each column is padded by half-a-gutter on each side,
    *

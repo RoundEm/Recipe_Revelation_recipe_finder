@@ -15,7 +15,7 @@ header nav {
 	text-align: center;
 }
 header p {
-	font-size: 1.15em;
+	font-size: 1.05em;
 	background-color: #dedede;
 	margin: 0;
 	padding: 10px 25px;
@@ -46,11 +46,15 @@ form {
 	border-right: 1px solid black;
 	border-left: 1px solid black;
 }
-.resultsContainer p.templateRecipeName {
-	background-color: #ffc87a;
+.resultsContainer p.templateRecipeName, .resultsContainer p.templateRecipeName a {
+	background-color: #3b3b3b;
+	color: white;
 }
 .templateIngredients {
-	background-color: #99df99;
+	background-color: #dedede;
+}
+.templateTime {
+	background-color: #CEF6E3;		
 }
 .resultsContainer {
 	/*border: 1px solid black;*/	
@@ -100,14 +104,16 @@ input[type='text'] {
 	font-size: 1.1em;
 }
 .ingredientList li:hover {
-	background-color: #ff4c4c;
+	background-color: #F78181;
 	cursor: pointer;
 }
 .ingredientList p {
 	width: 33%;
 	margin: 0 0 0 35px;
 	padding: 5px 10px;
-	background-color: yellow;
+	background-color: #CEF6E3;
+	border: 1px solid black;
+	/*color: white;*/
 }
 header.searchResponse {
 	margin: 7px 0;
@@ -120,7 +126,7 @@ button {
 	margin: 5px 0;
 	font-size: 1.05em;
 	border-radius: 5px;
-	background-color: #70DB93;
+	background-color: #dedede;
 	/*background-color: #5877f0;
 	border-radius: 10px;
 	font-size: .8em;
@@ -135,7 +141,7 @@ button:disabled  {
 	background-color: #dedede;
 }
 .resultsBtn {
-	margin: 5px 0 25px;
+	margin: 15px 0 25px;
 	display: none;
 }
 span {
