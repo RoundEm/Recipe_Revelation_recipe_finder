@@ -84,8 +84,8 @@ const Yummly = {
 						ingredientString += ', ';
 					}
 				}	
-				$('.resultsContainer').append(
-					`<div class=".col-4"><a href="imageTag"><p class="templateRecipeName"><span>${recipeName}</span></a> from <em>${sourceName}</em></p>
+				$('.js-recipeResults').append(
+					`<div class="col-4"><a href="${sourceRecipeUrl}"><p class="templateRecipeName"><span>${recipeName}</span></a> from <em>${sourceName}</em></p>
 					<p class="templateIngredients"><span>Ingredients:</span> ${ingredientString}</p>
 					<p class="templateTime"><span>Total Time:</span> ${recipeTime}</p>
 					${imageTag}</div>`
@@ -118,7 +118,7 @@ const Yummly = {
 			let index = $(this).index();
 			$(this).remove();
 			console.log('index:', index);
-			$('.resultsContainer').empty();
+			$('.js-recipeResults').empty();
 			$('.searchResponse').empty();
 			$('.moreResults').hide();
 			$('.priorResults').hide();
@@ -140,7 +140,7 @@ const Yummly = {
 	findRecipes: function() {
 		$('.js-findRecipesBtn').click(function() {
 			// clears prior results
-			$('.resultsContainer').empty();
+			$('.js-recipeResults').empty();
 			// resets displayCounter so that new results show
 			Yummly.displayCounter = 0;
 			Yummly.getDataFromApi(Yummly.ingredients, Yummly.ingredientMatchValidation);
@@ -154,7 +154,7 @@ const Yummly = {
 		$('.js-clearBtn').click(function() {
 			$('.ingredientList ul').empty();
 			$('.ingredientList div').empty();
-			$('.resultsContainer').empty();
+			$('.js-recipeResults').empty();
 			$('.searchResponse').empty();
 			$('.moreResults').hide();
 			$('.priorResults').hide();
@@ -169,7 +169,7 @@ const Yummly = {
 			$('.searchResponse').html('Sorry, the ingredients entered returned 0 hits. Please select clear and try a different search.');
 		} else {
 			$('.searchResponse').html(`<em><strong>Success! ${data.attribution.html} </br>
-				Select recipe images to go to the source recipe webpage</strong></em>`);
+				Select recipe name or image to go to the source recipe webpage</strong></em>`);
 			$('.moreResults').show();
 			$('.findRecipes').hide();
 			Yummly.resultData = data;
@@ -205,7 +205,7 @@ const Yummly = {
 			Yummly.displayCounter = 0;
 			Yummly.page += Yummly.responseResult;
 			console.log('page Number more:', Yummly.page);
-			$('.resultsContainer').empty();
+			$('.js-recipeResults').empty();
 			Yummly.paginationButtonFilter();
 			Yummly.getDataFromApi(Yummly.ingredients, Yummly.checkPageNumber, Yummly.page);
 		});

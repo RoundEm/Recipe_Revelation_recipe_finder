@@ -13,6 +13,7 @@ header nav {
 	color: white;
 	padding: 10px;
 	text-align: center;
+	border-bottom: 2px solid #CEF6E3;
 }
 header p {
 	font-size: 1.05em;
@@ -40,15 +41,18 @@ form label {
 form {
 	margin: 5px 0 0 0;
 }
-.resultsContainer p {
+.js-recipeResults p {
 	padding: 5px;
 	border-top: 1px solid black;
 	border-right: 1px solid black;
 	border-left: 1px solid black;
 }
-.resultsContainer p.templateRecipeName, .resultsContainer p.templateRecipeName a {
+p.templateRecipeName, p.templateRecipeName a {
 	background-color: #3b3b3b;
 	color: white;
+}
+p.templateRecipeName a:hover {
+	color: #e65b00;
 }
 .templateIngredients {
 	background-color: #dedede;
@@ -56,10 +60,8 @@ form {
 .templateTime {
 	background-color: #CEF6E3;		
 }
-.resultsContainer {
-	/*border: 1px solid black;*/	
-}
 .js-recipeResults img {
+	width: 100%;
 	border: 1px solid black;
 }
 .js-recipeResults a {
@@ -68,18 +70,12 @@ form {
 }
 .js-recipeResults img:hover {
 	opacity: .6;
-	/*border: 2px solid #1E90FF;*/
 }
 .searchSection li, .ingredientList ul {
-	margin: 0 0 0 35px;
+	margin: 0 0 0 25px;
 }
 .searchResponse {
 	color: #e65b00;
-	/*width: 33%;*/
-	/*margin: 3px 0;*/
-	/*background-color: grey;*/
-	/*opacity: .9;*/
-	/*border: 1px solid #3b3b3b;*/
 }
 form {
 	margin: 8px 0;
@@ -92,7 +88,6 @@ input[type='text'] {
 	padding: 7px;
 }
 .ingredientList ul {
-	width: 33%;
 	color: white;
 }
 .ingredientList li {
@@ -104,12 +99,11 @@ input[type='text'] {
 	font-size: 1.1em;
 }
 .ingredientList li:hover {
-	background-color: #F78181;
+	background-color: #ff4c4c;
 	cursor: pointer;
 }
 .ingredientList p {
-	width: 33%;
-	margin: 0 0 0 35px;
+	margin: 0 0 0 25px;
 	padding: 5px 10px;
 	background-color: #CEF6E3;
 	border: 1px solid black;
@@ -117,9 +111,6 @@ input[type='text'] {
 }
 header.searchResponse {
 	margin: 7px 0;
-}
-.resultsContainer {
-	width: 362px;
 }
 button {
 	padding: 7px;
