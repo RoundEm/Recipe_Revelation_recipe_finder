@@ -84,7 +84,7 @@ const Yummly = {
 						ingredientString += ', ';
 					}
 				}	
-				$('.js-recipeResults').append(
+				$('.resultsContainer').append(
 					`<div class=".col-4"><a href="imageTag"><p class="templateRecipeName"><span>${recipeName}</span></a> from <em>${sourceName}</em></p>
 					<p class="templateIngredients"><span>Ingredients:</span> ${ingredientString}</p>
 					<p class="templateTime"><span>Total Time:</span> ${recipeTime}</p>
@@ -118,7 +118,7 @@ const Yummly = {
 			let index = $(this).index();
 			$(this).remove();
 			console.log('index:', index);
-			$('.js-recipeResults').empty();
+			$('.resultsContainer').empty();
 			$('.searchResponse').empty();
 			$('.moreResults').hide();
 			$('.priorResults').hide();
@@ -140,7 +140,7 @@ const Yummly = {
 	findRecipes: function() {
 		$('.js-findRecipesBtn').click(function() {
 			// clears prior results
-			$('.js-recipeResults').empty();
+			$('.resultsContainer').empty();
 			// resets displayCounter so that new results show
 			Yummly.displayCounter = 0;
 			Yummly.getDataFromApi(Yummly.ingredients, Yummly.ingredientMatchValidation);
@@ -154,7 +154,7 @@ const Yummly = {
 		$('.js-clearBtn').click(function() {
 			$('.ingredientList ul').empty();
 			$('.ingredientList div').empty();
-			$('.js-recipeResults').empty();
+			$('.resultsContainer').empty();
 			$('.searchResponse').empty();
 			$('.moreResults').hide();
 			$('.priorResults').hide();
@@ -205,7 +205,7 @@ const Yummly = {
 			Yummly.displayCounter = 0;
 			Yummly.page += Yummly.responseResult;
 			console.log('page Number more:', Yummly.page);
-			$('.js-recipeResults').empty();
+			$('.resultsContainer').empty();
 			Yummly.paginationButtonFilter();
 			Yummly.getDataFromApi(Yummly.ingredients, Yummly.checkPageNumber, Yummly.page);
 		});
