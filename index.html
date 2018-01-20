@@ -18,7 +18,7 @@
 
 	<main role="main">
 
-		<section class="searchSection">
+		<section class="searchSection sectionPad">
 			<p>Tips for best search results:</p>
 			<ul> 
 				<li>Keep ingredient names general</li>
@@ -31,7 +31,7 @@
 				<input type="text" name="ingredients" class="js-ingredient-query" required>
 				<button type="submit">Add Ingredient</button>
 			</form>
-			<div class="ingredientList" aria-live="assertive">
+			<div class="ingredientList" aria-live="assertive" hidden>
 				<div>
 					
 				</div>
@@ -41,14 +41,16 @@
 			</div>
 			<h2>Clear All Ingredients &amp Recipe Results</h2>
 			<button class="js-clearBtn" disabled>Clear</button>
+
+			<div class="findRecipes sectionPad">
+				<h2>Find Recipes!</h2>
+				<button class="js-findRecipesBtn" disabled>Submit</button>
+			</div>
 		</section>
 
-		<div class="findRecipes">
-			<h2>Find Recipes!</h2>
-			<button class="js-findRecipesBtn" disabled>Submit</button>
-		</div>
+		
 
-		<section aria-live="assertive">
+		<section class="results sectionPad" aria-live="assertive" hidden>
 			<header role="banner" class="searchResponse"></header>
 			<div class="resultsContainer">
 				<div class="row js-recipeResults">

@@ -37,8 +37,8 @@ const Yummly = {
 		}
 	},
 	processRecipeData: function(data) {
-		// console.groupCollapsed(`processRecipeData: ${data.id}`);
-		// console.log('data:', data);
+		console.groupCollapsed(`processRecipeData: ${data.id}`);
+		console.log('data:', data);
 		// loop over data and look at ID of data and match it to an item from the result data array
 		let resultDataIndex = Yummly.resultDataIndexById(data.id);
 		// console.log('resultDataIndex:', resultDataIndex);
@@ -56,7 +56,7 @@ const Yummly = {
 		    }
 		}
 		// console.log('all info added to Yummly.resultData:', Yummly.resultData);
-		// console.groupEnd();
+		console.groupEnd();
 		Yummly.displayCounter++;
 		console.log('Yummly.displayCounter:', Yummly.displayCounter);
 		Yummly.displayRecipeData();
@@ -71,11 +71,8 @@ const Yummly = {
 				let recipeName = Yummly.resultData.matches[i].name;
 				let sourceName = Yummly.resultData.matches[i].sourceDisplayName;
 				let sourceRecipeUrl = Yummly.resultData.matches[i].source.sourceRecipeUrl;
+				let servings = Yummly.resultData.matches[i].numberOfServings;
 				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`: `Sorry, no image available. Here's a <a href=${sourceRecipeUrl}>link</a> to the recipe source.`);
-				// TODO: format urls without http:// to have it
-				// let sourceSiteUrl = Yummly.resultData.matches[i].source.sourceSiteUrl;
-				// console.log('sourceSiteUrl:', sourceSiteUrl);
-				// let recipeIngredients = Yummly.resultData.matches[i].ingredients;
 				let recipeTime = `${Yummly.resultData.matches[i].totalTimeInSeconds / 60} minutes`;
 				let ingredientString = '';
 				for (let j = 0; j < Yummly.resultData.matches[i].ingredients.length; j++) {
@@ -85,9 +82,10 @@ const Yummly = {
 					}
 				}	
 				$('.js-recipeResults').append(
-					`<div class="col-4"><a href="${sourceRecipeUrl}"><p class="templateRecipeName"><span>${recipeName}</span></a> from <em>${sourceName}</em></p>
+					`<div class="col-4"><a href="${sourceRecipeUrl}"><p class="templateRecipeName"><span>${recipeName}</span> from <em>${sourceName}</em></a></p>
 					<p class="templateIngredients"><span>Ingredients:</span> ${ingredientString}</p>
 					<p class="templateTime"><span>Total Time:</span> ${recipeTime}</p>
+					<p class="templateServings">Number of Servings: ${servings}</p>
 					${imageTag}</div>`
 				);
 			}
@@ -99,6 +97,7 @@ const Yummly = {
 			$('.moreResults').hide();
 			$('.priorResults').hide(); 
 			$('button.js-clearBtn, button.js-findRecipesBtn').prop('disabled', false);
+			$('.ingredientList').prop('hidden', false);
 			// find ingredient input
 			const queryTarget = $(this).find('.js-ingredient-query');
 			const queryValue = queryTarget.val().toLowerCase();
@@ -134,11 +133,14 @@ const Yummly = {
 				Yummly.ingredients = [];
 				// console.log('Yummly.ingredients clear:', Yummly.ingredients);
 				$('.ingredientList div').empty();
+				$('.results').prop('hidden', true);
+				$('.ingredientList').prop('hidden', true);
 			}
 		});
 	},
 	findRecipes: function() {
 		$('.js-findRecipesBtn').click(function() {
+			$('.results').prop('hidden', false);
 			// clears prior results
 			$('.js-recipeResults').empty();
 			// resets displayCounter so that new results show
@@ -159,8 +161,11 @@ const Yummly = {
 			$('.moreResults').hide();
 			$('.priorResults').hide();
 			$('button.js-clearBtn, button.js-findRecipesBtn').prop('disabled', true);
+			$('.results').prop('hidden', true);
+			$('.ingredientList').prop('hidden', true);
 			Yummly.ingredients = [];
 			Yummly.displayCounter = 0;
+
 			
 		});
 	},
