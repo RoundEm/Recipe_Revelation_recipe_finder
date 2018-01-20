@@ -4,7 +4,7 @@
 	padding: 0;
 }
 html {
-	font-family: 'Nunito', sans-serif;  
+	font-family: 'Nunito', sans-serif;
 }
 header nav {
 	font-family: 'Julius Sans One', sans-serif;
@@ -17,7 +17,7 @@ header nav {
 }
 header p {
 	font-size: 1.05em;
-	background-color: #dedede;
+	background-color: #EAFAF1;
 	margin: 0;
 	padding: 10px 25px;
 }
@@ -56,13 +56,13 @@ p.templateRecipeName, p.templateRecipeName a {
 	color: white;
 }
 p.templateRecipeName a:hover {
-	color: #EAFAF1;;
+	color: #22e1bb;
 }
 .templateIngredients {
 	background-color: #ABEBC6;
 }
 .templateTime {
-	background-color: #CEF6E3;		
+	background-color: #CEF6E3;
 }
 .templateServings {
 	background-color: #EAFAF1;
@@ -88,7 +88,7 @@ form {
 }
 input[type='text'] {
 	height: 35px;
-	width: 250px; 
+	width: 250px;
 	font-size: 1em;
 	padding: 7px;
 	border: 1px solid #3b3b3b;
@@ -104,6 +104,7 @@ input[type='text'] {
 	list-style-type: none;
 	margin: 3px 0;
 	padding: 6px 0;
+	position: relative;
 	background-color: #3b3b3b;
 	text-align: center;
 	font-size: 1.1em;
@@ -134,7 +135,7 @@ button {
 }
 button:hover:enabled, button:focus:enabled {
 	cursor: pointer;
-	background-color: #b1fdc9;
+	background-color: #22e1bb;
 }
 button:disabled  {
 	cursor: not-allowed;
@@ -147,4 +148,28 @@ button:disabled  {
 span {
 	font-weight: bold;
 }
-
+.close {
+  position: absolute;
+  right: 30px;
+  top: 3px;
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+}
+.ingredientList li:hover .close {
+  opacity: 1;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 16px;
+  width: 2px;
+  background-color: #fff;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
