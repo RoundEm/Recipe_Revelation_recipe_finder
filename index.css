@@ -123,7 +123,7 @@ header.searchResponse {
 	margin: 7px 0;
 }
 button {
-	padding: 7px;
+	padding: 6px;
 	margin: 5px 0;
 	font-size: 1.05em;
 	border-radius: 5px;
@@ -150,8 +150,8 @@ span {
 }
 .close {
   position: absolute;
-  right: 30px;
-  top: 3px;
+  right: 22px;
+  top: 11px;
   width: 16px;
   height: 16px;
   opacity: 0.6;
@@ -163,7 +163,7 @@ span {
   position: absolute;
   left: 15px;
   content: ' ';
-  height: 16px;
+  height: 13px;
   width: 2px;
   background-color: #fff;
 }

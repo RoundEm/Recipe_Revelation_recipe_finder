@@ -1,10 +1,9 @@
 
 Javascript to do
-- add close icon (X) to ingredients list
-- allow user to tab through ingredients?
-- are instances prop('hidden', true) necessary?
 
-Javascript nice features to add:
+
+
+Javascript features to add down the road:
 - separate clear buttons for ingredient list and returned recipes
 - add http to recipe site urls that don't have it or just remove links?
 - remove duplicate recipes from the same site
