@@ -18,10 +18,10 @@ header nav {
 	border-bottom: 2px solid #CEF6E3;
 }
 header p {
-	font-size: .9em;
+	font-size: .95em;
 	background-color: #EAFAF1;
 	margin: 0;
-	padding: 10px 25px;
+	padding: 2px 20px 5px;
 	border-top: 2px solid #CEF6E3;
 }
 .sectionPad {
@@ -49,7 +49,7 @@ main h1 {
 	font-size: 1.5em;
 	background-color: #3b3b3b;
 	border: 2px solid #CEF6E3;
-	width: 300px;
+	/*width: 300px;*/
 	font-family: 'Julius Sans One', sans-serif;
 }
 .js-ingredients-form label {

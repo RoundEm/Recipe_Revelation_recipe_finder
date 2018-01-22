@@ -152,6 +152,12 @@ const Yummly = {
 	bindSearchTips: function() {
 		$('.accordion').click(function() {
 			$('.searchContainer > div:first-of-type').toggleClass('panel');
+			if ($('.searchContainer > div:first-of-type').hasClass('panel') === false) {
+				console.log('if statement ran');
+				$('.accordion').html('Select to hide tips');
+			} else {
+				$('.accordion').html('Select to see tips for best search results');
+			}
 		});
 	},
 	findRecipes: function() {
@@ -209,7 +215,7 @@ const Yummly = {
 			Yummly.resultsLimiter = Yummly.resultsRemaining;
 			$('.moreResults').hide();
 		}
-		document.body.scrollTop = document.documentElement.scrollTop = 225;
+		document.body.scrollTop = document.documentElement.scrollTop = 215;
 		Yummly.getRecipeDataFromApi();
 	},
 	paginationButtonFilter: function() {
