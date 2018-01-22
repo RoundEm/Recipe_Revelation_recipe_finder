@@ -103,7 +103,7 @@ const Yummly = {
 			const queryValue = queryTarget.val().toLowerCase();
 			// display ingredient to list in browser and add it to array
 			$('.ingredientList div').html('<p>Select the name of added ingredients to remove them. Previously returned recipes will be cleared out if you remove any ingredients.</p>');
-			$('.ingredientList ul').append(`<li tabindex="0">${queryValue}<a href="#" class="close"></a></li>`);
+			$('.ingredientList ul').append(`<li tabindex="0" aria-label="close">${queryValue}<a href="#" class="close"></a></li>`);
 			Yummly.ingredients.push(queryValue);
 			// encodeURI replaces spaces in ingredients (e.g. green beans with green%20beans)
 			encodeURI(Yummly.ingredients);
