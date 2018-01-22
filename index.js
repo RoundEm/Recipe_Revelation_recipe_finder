@@ -72,7 +72,7 @@ const Yummly = {
 				let sourceName = Yummly.resultData.matches[i].sourceDisplayName;
 				let sourceRecipeUrl = Yummly.resultData.matches[i].source.sourceRecipeUrl;
 				let servings = Yummly.resultData.matches[i].numberOfServings;
-				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`: `Sorry, no image available. Here's a <a href=${sourceRecipeUrl}>link</a> to the recipe source.`);
+				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`: `<p class="templateNoImg">Sorry, no image available. Here's a <a href=${sourceRecipeUrl}>link</a> to the recipe source.</p>`);
 				let recipeTime = `${Yummly.resultData.matches[i].totalTimeInSeconds / 60} minutes`;
 				let ingredientString = '';
 				for (let j = 0; j < Yummly.resultData.matches[i].ingredients.length; j++) {
@@ -102,7 +102,7 @@ const Yummly = {
 			const queryTarget = $(this).find('.js-ingredient-query');
 			const queryValue = queryTarget.val().toLowerCase();
 			// display ingredient to list in browser and add it to array
-			$('.ingredientList div').html('<p>Select added ingredients to remove them. Previously returned recipes will be cleared out if you remove any ingredients.</p>');
+			$('.ingredientList div').html('<p>Previously returned recipes will be cleared out if you remove any ingredients.</p>');
 			$('.ingredientList ul').append(`<li tabindex="0" aria-label="close">${queryValue}<a href="#" class="close"></a></li>`);
 			Yummly.ingredients.push(queryValue);
 			// encodeURI replaces spaces in ingredients (e.g. green beans with green%20beans)

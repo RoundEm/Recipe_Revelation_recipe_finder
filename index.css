@@ -18,10 +18,11 @@ header nav {
 	border-bottom: 2px solid #CEF6E3;
 }
 header p {
-	font-size: 1.05em;
+	font-size: .9em;
 	background-color: #EAFAF1;
 	margin: 0;
 	padding: 10px 25px;
+	border-top: 2px solid #CEF6E3;
 }
 .sectionPad {
 	padding: 10px 25px;
@@ -47,14 +48,14 @@ main h1 {
 	color: white;
 	font-size: 1.5em;
 	background-color: #3b3b3b;
-	border: 1px solid #CEF6E3;
-	/*width: 400px;*/
+	border: 2px solid #CEF6E3;
+	width: 300px;
 	font-family: 'Julius Sans One', sans-serif;
 }
 .js-ingredients-form label {
 	display: block;
 	background-color: #3b3b3b;
-	border: 1px solid #CEF6E3;
+	border: 2px solid #CEF6E3;
 	color: white;
 	font-size: 2em;
 	padding: 3px;
@@ -77,7 +78,7 @@ p.templateRecipeName, p.templateRecipeName a {
 	color: white;
 }
 p.templateRecipeName a:hover {
-	color: #3b3b3b;
+	color: #22e1bb;
 }
 .templateIngredients {
 	background-color: #ABEBC6;
@@ -88,9 +89,13 @@ p.templateRecipeName a:hover {
 .templateServings {
 	background-color: #EAFAF1;
 }
+.templateNoImg {
+	background-color: white;
+}
 .js-recipeResults img {
 	width: 100%;
 	border: 1px solid white;
+	background-color: white;
 }
 .js-recipeResults a {
 	text-decoration: none;
@@ -149,7 +154,7 @@ input[type='text'] {
 	font-size: 1.1em;
 }
 .ingredientList li:hover {
-	background-color: #ff4c4c;
+	background-color: #fb0632;
 	cursor: pointer;
 }
 .ingredientList p {
@@ -197,7 +202,7 @@ span {
   right: 22px;
   top: 11px;
   width: 16px;
-  height: 16px;
+  height: 17px;
   opacity: 0.6;
 }
 .ingredientList li:hover .close {
