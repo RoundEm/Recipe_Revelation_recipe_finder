@@ -153,7 +153,6 @@ const Yummly = {
 		$('.accordion').click(function() {
 			$('.searchContainer > div:first-of-type').toggleClass('panel');
 			if ($('.searchContainer > div:first-of-type').hasClass('panel') === false) {
-				console.log('if statement ran');
 				$('.accordion').html('Select to hide tips');
 			} else {
 				$('.accordion').html('Select to see tips for best search results');
@@ -196,7 +195,8 @@ const Yummly = {
 			$('.searchResponse').html(`<strong>Success! ${data.attribution.html} </br>
 				Select recipe name or image to go to the source recipe webpage</strong>`);
 			$('.moreResults').show();
-			$('.findRecipes').hide();
+			
+			// $('.findRecipes').hide();
 			Yummly.resultData = data;
 			Yummly.totalResults = data.totalMatchCount;
 			Yummly.resultsRemaining = data.totalMatchCount;

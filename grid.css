@@ -51,6 +51,14 @@
 .ingredientList p, .ingredientList ul {
   width: 80%;
 }
+.searchContainer {
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
+}
+input[type='text'] {
+  width: 65%;
+}
 /* Non-mobile, grid */
 @media only screen and (min-width: 700px) {
   /* 3 columns, 3/12 in % */
@@ -74,5 +82,13 @@
   }
   .ingredientList p, .ingredientList ul{
     width: 400px;
+  }
+  .searchContainer {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  input[type='text'] {
+    width: 50%;
   }
 }

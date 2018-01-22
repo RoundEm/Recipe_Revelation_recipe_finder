@@ -1,13 +1,14 @@
 
 To Do:
-- What happens to Find Recipe button when search is done? Has something to do with results less than 9 or resultResponse variable, also when you go to the last page it seems like you can't get back to the prior page?
-- Change hints button text depending on status
+- Bug when you try to return from the last page of results that causes a URL to not be found (e.g. star anise, bacon, lemon)? / If you go to the last page it seems like you can't get back to the prior page? 	 	
+- check if totalTimeInSeconds is null and if so insert custom message stating that the time isn't known 
 - add aria to hints section?
 - responsive widths for input and other search section elements
 - highlight ingredients when tabbed focus (see GoT project?)
 
 Questions:
 - way to make auto-suggestion not show after enterting an ingredient??
+- hide clear and submit buttons?
 
 
 Javascript features to add down the road:
