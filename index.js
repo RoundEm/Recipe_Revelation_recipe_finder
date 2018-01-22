@@ -102,7 +102,7 @@ const Yummly = {
 			const queryTarget = $(this).find('.js-ingredient-query');
 			const queryValue = queryTarget.val().toLowerCase();
 			// display ingredient to list in browser and add it to array
-			$('.ingredientList div').html('<p>Select the name of added ingredients to remove them. Previously returned recipes will be cleared out if you remove any ingredients.</p>');
+			$('.ingredientList div').html('<p>Select added ingredients to remove them. Previously returned recipes will be cleared out if you remove any ingredients.</p>');
 			$('.ingredientList ul').append(`<li tabindex="0" aria-label="close">${queryValue}<a href="#" class="close"></a></li>`);
 			Yummly.ingredients.push(queryValue);
 			// encodeURI replaces spaces in ingredients (e.g. green beans with green%20beans)
@@ -149,6 +149,11 @@ const Yummly = {
 			$('.ingredientList').prop('hidden', true);
 		}
 	},
+	bindSearchTips: function() {
+		$('.accordion').click(function() {
+			$('.searchContainer > div:first-of-type').toggleClass('panel');
+		});
+	},
 	findRecipes: function() {
 		$('.js-findRecipesBtn').click(function() {
 			$('.results').prop('hidden', false);
@@ -176,16 +181,14 @@ const Yummly = {
 			$('.ingredientList').prop('hidden', true);
 			Yummly.ingredients = [];
 			Yummly.displayCounter = 0;
-
-
 		});
 	},
 	ingredientMatchValidation: function(data) {
 		if (typeof data.matches !== 'undefined' && data.matches.length === 0) {
 			$('.searchResponse').html('Sorry, the ingredients entered returned 0 hits. Please select clear and try a different search.');
 		} else {
-			$('.searchResponse').html(`<em><strong>Success! ${data.attribution.html} </br>
-				Select recipe name or image to go to the source recipe webpage</strong></em>`);
+			$('.searchResponse').html(`<strong>Success! ${data.attribution.html} </br>
+				Select recipe name or image to go to the source recipe webpage</strong>`);
 			$('.moreResults').show();
 			$('.findRecipes').hide();
 			Yummly.resultData = data;
@@ -241,6 +244,7 @@ const Yummly = {
 		Yummly.collectIngredients();
 		Yummly.clearIngredientList();
 		Yummly.bindRemoveIngredient();
+		Yummly.bindSearchTips();
 		Yummly.moreResults();
 		Yummly.priorResults();
 	},

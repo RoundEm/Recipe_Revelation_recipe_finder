@@ -9,46 +9,47 @@
 </head>
 <body>
 
-		<header role="banner">
-			<nav role="navigation">
-				<h1>Recipe Revelation</h1>
-			</nav>
-			<p>Do you ever find yourself pondering what meals you can prepare with specific ingredients available in your kitchen? Do you ever feel uninspired in the kitchen and just want some random ideas for tasty and popular recipes that utilize specific ingredients? If so, then you've come to the right place! <i>Recipe Revelation</i>, which is powered by the recipe aggregator website, <a href="https://www.yummly.com/" target="_blank">Yummly</a>, is a reverse recipe finder that allows you to retrieve full and delicious recipes from some of <a href="https://developer.yummly.com/#sources" target="_blank">the most popular food blogs and recipe sites</a> just by searching for one or more ingredient. Successfully returned recipes will include a minimum of all the ingredients you search for.</p>
-		</header>
+	<header role="banner">
+		<nav role="navigation">
+			<h1>Recipe Revelation</h1>
+		</nav>
+		<p>Do you ever find yourself pondering what meals you can prepare with specific ingredients available in your kitchen? Do you ever feel uninspired in the kitchen and just want some random ideas for tasty and popular recipes that utilize specific ingredients? If so, then you've come to the right place! <i>Recipe Revelation</i>, which is powered by the recipe aggregator website, <a href="https://www.yummly.com/" target="_blank">Yummly</a>, is a reverse recipe finder that allows you to retrieve full and delicious recipes from some of <a href="https://developer.yummly.com/#sources" target="_blank">the most popular food blogs and recipe sites</a> just by searching for one or more ingredient. Successfully returned recipes will include a minimum of all the ingredients you search for.</p>
+	</header>
 
 	<main role="main">
 
 		<section class="searchSection sectionPad">
-			<p>Tips for best search results:</p>
-			<ul> 
-				<li>Keep ingredient names general</li>
-				<li>Don't combine separate ingredients into one entry</li>
-				<li>Don't search by methods of preparation or cooking technique</li>
-				<li>If you're having trouble finding a recipe check ingredient spelling or try entering less ingredients</li>
-			</ul>
-			<form role="form" class="js-ingredients-form">
-				<label for="ingredients">Enter ingredients one-at-a-time:</label></br>
-				<input type="text" name="ingredients" class="js-ingredient-query" required>
-				<button type="submit">Add Ingredient</button>
-			</form>
-			<div class="ingredientList" aria-live="assertive" hidden>
-				<div>
-					
+			<div class="searchContainer">
+				<button class="accordion">Select to see tips for best search results</button>
+				<div class="panel panelClosed">
+					<p>Keep ingredient names general</p>
+					<p>Don't combine separate ingredients into one entry</p>
+					<p>Don't search by methods of preparation or cooking technique</p>
+					<p>If you're having trouble finding a recipe check ingredient spelpng or try entering less ingredients</p>
 				</div>
-				<ul>
+				
+				<form role="form" class="js-ingredients-form">
+					<label for="ingredients">Enter ingredients one-at-a-time</label>
+					<input type="text" name="ingredients" class="js-ingredient-query" required>
+					<button type="submit">Add Ingredient</button>
+				</form>
+				<div class="ingredientList" aria-live="assertive" hidden>
+					<div>
+						
+					</div>
+					<ul>
 
-				</ul>
-			</div>
-			<h2>Clear All Ingredients &amp Recipe Results</h2>
-			<button class="js-clearBtn" disabled>Clear</button>
+					</ul>
+				</div>
+				<label for="clearBtn">Clear Ingredients &amp Recipe Results</label>
+				<button class="js-clearBtn" id="clearBtn" disabled>Clear</button>
 
-			<div class="findRecipes sectionPad">
-				<h2>Find Recipes!</h2>
-				<button class="js-findRecipesBtn" disabled>Submit</button>
+				<div class="findRecipes sectionPad">
+					<label for="findRecipeBtn">Find Recipes!</label>
+					<button class="js-findRecipesBtn" id="findRecipeBtn" disabled>Submit</button>
+				</div>
 			</div>
 		</section>
-
-		
 
 		<section class="results sectionPad" aria-live="assertive" hidden>
 			<header role="banner" class="searchResponse"></header>
@@ -61,7 +62,7 @@
 			<button class="resultsBtn moreResults">More Results</button>
 		</section>
 
-	</main>
+	</	main>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="index.js"></script>
 </body>
