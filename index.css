@@ -66,7 +66,6 @@ form {
 }
 input[type='text'] {
 	height: 36px;
-	/*width: 65%;*/
 	font-size: 1em;
 	padding: 7px;
 	margin-top: 4px;
@@ -85,10 +84,15 @@ input[type='text'] {
 	margin: 3px 0;
 	padding: 4px 0;
 	position: relative;
-	background-color: #16a085;
 	border: 1px solid white;
 	text-align: center;
 	font-size: 1.1em;
+}
+.unhighlighted {
+	background-color: #16a085;
+}
+.highlight {
+	background-color: #fb0632;
 }
 .ingredientList li:hover {
 	background-color: #fb0632;
@@ -99,12 +103,12 @@ input[type='text'] {
 	color: black;
 	padding: 5px 10px;
 	background-color: #CEF6E3;
-	/*border: 1px solid black;*/
 }
 header.searchResponse {
 	margin: 7px 0;
 }
 span {
+	/* For recipe name */
 	font-weight: bold;
 }
 .searchResponse {

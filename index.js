@@ -103,12 +103,23 @@ const Yummly = {
 			const queryValue = queryTarget.val().toLowerCase();
 			// display ingredient to list in browser and add it to array
 			$('.ingredientList div').html('<p>Previously returned recipes will be cleared out if you remove any ingredients.</p>');
-			$('.ingredientList ul').append(`<li tabindex="0" aria-label="close">${queryValue}<a href="#" class="close"></a></li>`);
+			$('.ingredientList ul').append(`<li class="unhighlighted" tabindex="0" aria-label="remove ingredient">${queryValue}<a href="#" class="close"></a></li>`);
 			Yummly.ingredients.push(queryValue);
 			// encodeURI replaces spaces in ingredients (e.g. green beans with green%20beans)
 			encodeURI(Yummly.ingredients);
 			queryTarget.val('');
 			$('.findRecipes').show();
+		});
+	},
+	highlightIngredient: function() {
+		$('.ingredientList ul').on('focusin', 'li', function() {
+			console.log('focusin ran');
+			$(this).removeClass('unhighlighted');
+			$(this).addClass('highlight');	
+		});
+		$('.ingredientList ul').on('focusout', 'li', function() {
+			$(this).removeClass('highlight');
+			$(this).addClass('unhighlighted');	
 		});
 	},
 	bindRemoveIngredient: function() {
@@ -250,6 +261,7 @@ const Yummly = {
 		Yummly.collectIngredients();
 		Yummly.clearIngredientList();
 		Yummly.bindRemoveIngredient();
+		Yummly.highlightIngredient();
 		Yummly.bindSearchTips();
 		Yummly.moreResults();
 		Yummly.priorResults();
