@@ -66,7 +66,7 @@ const Yummly = {
 	displayRecipeData: function() {
 		console.log('Yummly.resultsLimiter:', Yummly.resultsLimiter);
 		console.log('Yummly.displayCounter:', Yummly.displayCounter);
-		if (Yummly.displayCounter === Yummly.resultsLimiter) {
+		if (Yummly.displayCounter === Yummly.resultData.matches.length) {
 			for (let i = 0; i < Yummly.resultData.matches.length; i++) {
 				let recipeName = Yummly.resultData.matches[i].name;
 				let sourceName = Yummly.resultData.matches[i].sourceDisplayName;

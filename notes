@@ -1,13 +1,10 @@
 
 To Do:
-- Sometimes results aren't displayed when they are returned
-- Bug when you try to return from the last page of results that causes a URL to not be found (e.g. star anise, bacon, lemon)? / If you go to the last page it seems like you can't get back to the prior page?  
 - add aria to hints section?
 - check if totalTimeInSeconds is null and if so insert custom message stating that the time isn't known
 - decrease width of clear and find labels when full screen
 
 Questions:
-- way to make auto-suggestion not show after enterting an ingredient??
 - hide clear and submit buttons?
 
 
