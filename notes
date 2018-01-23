@@ -1,10 +1,10 @@
 
 To Do:
-- Bug when you try to return from the last page of results that causes a URL to not be found (e.g. star anise, bacon, lemon)? / If you go to the last page it seems like you can't get back to the prior page? 	 	
-- check if totalTimeInSeconds is null and if so insert custom message stating that the time isn't known 
+- Sometimes results aren't displayed when they are returned
+- Bug when you try to return from the last page of results that causes a URL to not be found (e.g. star anise, bacon, lemon)? / If you go to the last page it seems like you can't get back to the prior page?  
 - add aria to hints section?
-- responsive widths for input and other search section elements
-- highlight ingredients when tabbed focus (see GoT project?)
+- check if totalTimeInSeconds is null and if so insert custom message stating that the time isn't known
+- decrease width of clear and find labels when full screen
 
 Questions:
 - way to make auto-suggestion not show after enterting an ingredient??
@@ -16,5 +16,5 @@ Javascript features to add down the road:
 - add http to recipe site urls that don't have it or just remove links?
 - remove duplicate recipes from the same site
 - filter by vegetarian or food allergies
-- something showing how many results and how many remaining
+- something showing how many results are returned and how many remaining
 
