@@ -44,41 +44,34 @@
 }
 
 /* Mobile defaults */
-.col-3, .col-4, .col-6, .col-12 {
+.col-3, .col-4 {
   width: 100%;
   margin-top: 15px;
 }
 .ingredientList p, .ingredientList ul {
-  width: 80%;
+  width: 100%;
 }
 .searchContainer {
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
 }
 input[type='text'] {
-  width: 65%;
+  width: 85%;
 }
+header p {
+  font-size: 14px;
+/*  padding: 20px 40px 20px;
+*/}
 /* Non-mobile, grid */
 @media only screen and (min-width: 700px) {
-  /* 3 columns, 3/12 in % */
+  /* 3 columns, 3/12 in % 
   .col-3 {
     width: 25%;
   }
-
   /* 4 columns, 4/12 in % */
   .col-4 {
     width: 33.33%;
-  }
-
-  /* 6 columns 6/12 in % */
-  .col-6 {
-    width: 50%;
-  }
-
-  /* 12 columns, 12/12 */
-  .col-12 {
-    width: 100%;
   }
   .ingredientList p, .ingredientList ul{
     width: 400px;
@@ -91,4 +84,8 @@ input[type='text'] {
   input[type='text'] {
     width: 50%;
   }
+  header p {
+    font-size: 1em;
+/*    padding: 20px 40px 20px;
+*/  }
 }

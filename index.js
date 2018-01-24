@@ -73,7 +73,12 @@ const Yummly = {
 				let sourceRecipeUrl = Yummly.resultData.matches[i].source.sourceRecipeUrl;
 				let servings = Yummly.resultData.matches[i].numberOfServings;
 				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`: `<p class="templateNoImg">Sorry, no image available. Here's a <a href=${sourceRecipeUrl} target="_blank">link</a> to the recipe source.</p>`);
-				let recipeTime = `${Yummly.resultData.matches[i].totalTimeInSeconds / 60} minutes`;
+				let recipeTime = '';
+				if (Yummly.resultData.matches[i].totalTimeInSeconds === null) {
+					recipeTime = 'Sorry, the recipe time is not available';
+				} else {
+					recipeTime = `${Yummly.resultData.matches[i].totalTimeInSeconds / 60} minutes`;
+				}
 				let ingredientString = '';
 				for (let j = 0; j < Yummly.resultData.matches[i].ingredients.length; j++) {
 					ingredientString += Yummly.resultData.matches[i].ingredients[j];

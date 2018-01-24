@@ -16,10 +16,10 @@ header nav {
 	text-align: center;
 }
 header p {
-	font-size: .95em;
+	/*font-size: .95em;*/
 	background-color: #EAFAF1;
 	margin: 0;
-	padding: 2px 20px 5px;
+	padding: 20px 40px 20px;
 	border-top: 2px solid #CEF6E3;
 	border-bottom: 2px solid #CEF6E3;
 }
@@ -33,7 +33,7 @@ main h1 {
 	font-family: 'Julius Sans One', sans-serif;
 }
 .sectionPad {
-	padding: 10px 25px;
+	padding: 10px 0;
 }
 .searchSection {
 	background-image: url('freshFood.jpg');
