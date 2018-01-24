@@ -75,7 +75,7 @@ const Yummly = {
 				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`: `<p class="templateNoImg">Sorry, no image available. Here's a <a href=${sourceRecipeUrl} target="_blank">link</a> to the recipe source.</p>`);
 				let recipeTime = '';
 				if (Yummly.resultData.matches[i].totalTimeInSeconds === null) {
-					recipeTime = 'Sorry, the recipe time is not available';
+					recipeTime = `Sorry, the recipe time is not available. See recipe <a href="${sourceRecipeUrl}" target="_blank">source for more information</a>`;
 				} else {
 					recipeTime = `${Yummly.resultData.matches[i].totalTimeInSeconds / 60} minutes`;
 				}
