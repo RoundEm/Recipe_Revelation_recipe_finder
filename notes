@@ -1,7 +1,6 @@
 
 To Do:
-- check if totalTimeInSeconds is null and if so insert custom message stating that the time isn't known
-- Do you need to be able to tab over ingredients, time, servings?
+- Do you need to be able to tab over ingredients, time, servings in recipe results?
 - how to get close icon to highlight when focused
 - make widths closer to 100% and header p smaller when on mobile
 

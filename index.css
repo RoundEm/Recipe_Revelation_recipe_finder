@@ -4,7 +4,8 @@
 	padding: 0;
 }
 html {
-	font-family: 'Nunito', sans-serif;
+	/*font-family: 'Nunito', sans-serif;*/
+	font-family: 'Noticia Text', serif;
 	background-color: #3b3b3b;
 }
 header nav {
@@ -38,16 +39,6 @@ main h1 {
 .searchSection {
 	background-image: url('freshFood.jpg');
 	color: white;
-}
-.searchContainer > label, .findRecipes label {
-	display: block;
-	margin: 10px auto 0;
-	padding: 4px;
-	color: white;
-	font-size: 1.5em;
-	background-color: #3b3b3b;
-	border: 2px solid #CEF6E3;
-	font-family: 'Julius Sans One', sans-serif;
 }
 .js-ingredients-form label {
 	display: block;
@@ -164,6 +155,7 @@ p.templateRecipeName a:hover {
 	opacity: .6;
 }
 button {
+	font-family: 'Noticia Text', serif;
 	padding: 6px;
 	margin: 5px 0 0;
 	font-size: 1.05em;

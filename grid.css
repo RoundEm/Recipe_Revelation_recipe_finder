@@ -49,10 +49,10 @@
   margin-top: 15px;
 }
 .ingredientList p, .ingredientList ul {
-  width: 100%;
+  width: 90%;
 }
 .searchContainer {
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
   text-align: center;
 }
@@ -60,11 +60,11 @@ input[type='text'] {
   width: 85%;
 }
 header p {
-  font-size: 14px;
-/*  padding: 20px 40px 20px;
-*/}
+  font-size: .8em;
+  padding: 10px 20px 10px;
+}
 /* Non-mobile, grid */
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 650px) {
   /* 3 columns, 3/12 in % 
   .col-3 {
     width: 25%;
