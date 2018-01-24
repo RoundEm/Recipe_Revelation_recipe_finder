@@ -96,11 +96,7 @@ input[type='text'] {
 	background-color: #CEF6E3;
 }
 header.searchResponse {
-	margin: 7px 0;
-}
-span {
-	/* For recipe name */
-	font-weight: bold;
+	margin: 7px 15px;
 }
 .searchResponse {
 	color: white;
@@ -117,6 +113,10 @@ span {
 }
 .searchContainer div.panelClosed p:nth-child(even) {
 	background-color: #CEF6E3;
+}
+span {
+	/* For recipe name */
+	font-weight: bold;
 }
 .js-recipeResults p {
 	padding: 2px 4px;
