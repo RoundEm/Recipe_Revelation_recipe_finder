@@ -21,7 +21,7 @@
 		<section class="searchSection sectionPad">
 			<div class="searchContainer">
 				<button class="accordion">Select to see tips for best search results</button>
-				<div class="panel panelClosed">
+				<div class="panel panelClosed" aria-live="assertive" hidden>
 					<p>Keep ingredient names general</p>
 					<p>Don't combine separate ingredients into one entry</p>
 					<p>Don't search by methods of preparation or cooking technique</p>
@@ -41,12 +41,12 @@
 
 					</ul>
 				</div>
-				<label for="clearBtn">Clear Ingredients &amp Recipe Results</label>
-				<button class="js-clearBtn" id="clearBtn" disabled>Clear</button>
+				<!-- <label for="clearBtn">Clear Ingredients &amp Recipe Results</label> -->
+				<button class="js-clearBtn" id="clearBtn" disabled>Clear Ingredients &amp Recipe Results</button>
 
 				<div class="findRecipes sectionPad">
-					<label for="findRecipeBtn">Find Recipes!</label>
-					<button class="js-findRecipesBtn" id="findRecipeBtn" disabled>Submit</button>
+					<!-- <label for="findRecipeBtn">Find Recipes!</label> -->
+					<button class="js-findRecipesBtn" id="findRecipeBtn" disabled>Find Recipes!</button>
 				</div>
 			</div>
 		</section>

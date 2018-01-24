@@ -57,7 +57,7 @@ const Yummly = {
 		}
 		// console.log('all info added to Yummly.resultData:', Yummly.resultData);
 		// console.groupEnd();
-		Yummly.displayCounter++;
+		Yummly.displayCounter++;	
 		console.log('Yummly.displayCounter:', Yummly.displayCounter);
 		Yummly.displayRecipeData();
 		// Scroll to top of next page
@@ -72,7 +72,7 @@ const Yummly = {
 				let sourceName = Yummly.resultData.matches[i].sourceDisplayName;
 				let sourceRecipeUrl = Yummly.resultData.matches[i].source.sourceRecipeUrl;
 				let servings = Yummly.resultData.matches[i].numberOfServings;
-				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`: `<p class="templateNoImg">Sorry, no image available. Here's a <a href=${sourceRecipeUrl}>link</a> to the recipe source.</p>`);
+				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`: `<p class="templateNoImg">Sorry, no image available. Here's a <a href=${sourceRecipeUrl} target="_blank">link</a> to the recipe source.</p>`);
 				let recipeTime = `${Yummly.resultData.matches[i].totalTimeInSeconds / 60} minutes`;
 				let ingredientString = '';
 				for (let j = 0; j < Yummly.resultData.matches[i].ingredients.length; j++) {
@@ -164,9 +164,12 @@ const Yummly = {
 			$('.searchContainer > div:first-of-type').toggleClass('panel');
 			if ($('.searchContainer > div:first-of-type').hasClass('panel') === false) {
 				$('.accordion').html('Select to hide tips');
+				$('.searchContainer > div:first-of-type').prop('hidden', false);
 			} else {
 				$('.accordion').html('Select to see tips for best search results');
+				$('.searchContainer > div:first-of-type').prop('hidden', true);
 			}
+
 		});
 	},
 	findRecipes: function() {

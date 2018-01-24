@@ -1,17 +1,16 @@
 
 To Do:
-- add aria to hints section?
 - check if totalTimeInSeconds is null and if so insert custom message stating that the time isn't known
-- decrease width of clear and find labels when full screen
+- Do you need to be able to tab over ingredients, time, servings?
+- how to get close icon to highlight when focused
+- make widths closer to 100% and header p smaller when on mobile
 
-Questions:
-- hide clear and submit buttons?
 
-
-Javascript features to add down the road:
+Features to add down the road:
 - separate clear buttons for ingredient list and returned recipes
 - add http to recipe site urls that don't have it or just remove links?
 - remove duplicate recipes from the same site
 - filter by vegetarian or food allergies
 - something showing how many results are returned and how many remaining
+- hide recipe ingredients once section height reaches a certain point
 
