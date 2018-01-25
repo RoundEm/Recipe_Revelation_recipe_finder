@@ -15,7 +15,7 @@ const Yummly = {
 			_app_key: 'f1568a729fd303537771dd46dbc3f91b',
 			allowedIngredient: allowedIngredient,
 			maxResult: Yummly.responseResult,
-			start: start,
+			start: start
 		}
 		$.getJSON(Yummly.INGREDIENT_URL, apiAuth, callback);
 	},
@@ -71,7 +71,7 @@ const Yummly = {
 				if (Yummly.resultData.matches[i].totalTimeInSeconds === null) {
 					recipeTime = `Sorry, the recipe time is not available. See recipe <a href="${sourceRecipeUrl}" target="_blank">source for more information</a>`;
 				} else {
-					recipeTime = `${Yummly.resultData.matches[i].totalTimeInSeconds / 60} minutes`;
+					recipeTime = `${Math.round(Yummly.resultData.matches[i].totalTimeInSeconds / 60)} minutes`;
 				}
 				let ingredientString = '';
 				for (let j = 0; j < Yummly.resultData.matches[i].ingredients.length; j++) {
@@ -101,7 +101,7 @@ const Yummly = {
 			const queryValue = queryTarget.val().toLowerCase();
 			// display ingredient to list in browser and add it to array
 			$('.ingredientList div').html('<p>Previously returned recipes will be cleared out if you remove any ingredients.</p>');
-			$('.ingredientList ul').append(`<li class="unhighlighted" tabindex="0" aria-label="remove ingredient">${queryValue}<a href="#" class="close"></a></li>`);
+			$('.ingredientList ul').append(`<li class="unhighlighted" tabindex="0" aria-label="remove ingredient">${queryValue}<a href="#" class="close" tabindex="-1"></a></li>`);
 			Yummly.ingredients.push(queryValue);
 			// encodeURI replaces spaces in ingredients (e.g. green beans with green%20beans)
 			encodeURI(Yummly.ingredients);
@@ -124,7 +124,7 @@ const Yummly = {
 			$this = $(this);
 			Yummly.removeIngredient($this);
 		});
-		$('.ingredientList').keypress(function (e) {
+		$('.ingredientList').on('keypress', 'li', function (e) {
 			$this = $(this);
 		 var key = e.which;
 		 if(key == 13) {
