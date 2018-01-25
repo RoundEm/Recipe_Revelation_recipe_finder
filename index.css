@@ -129,7 +129,9 @@ p.templateRecipeName, p.templateRecipeName a {
 	background-color: #16a085;
 	color: white;
 }
-p.templateRecipeName a:hover {
+p.templateRecipeName a:hover, p.templateRecipeName a:focus {
+	color: #22e1bb;
+} {
 	color: #22e1bb;
 }
 .templateIngredients {
@@ -152,7 +154,7 @@ p.templateRecipeName a:hover {
 .js-recipeResults a {
 	text-decoration: none;
 }
-.js-recipeResults img:hover {
+.js-recipeResults img:hover, .js-recipeResults img:focus {
 	opacity: .6;
 }
 button {
