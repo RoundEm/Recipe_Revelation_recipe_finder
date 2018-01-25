@@ -38,7 +38,7 @@ main h1 {
 	padding: 10px 0;
 }
 .searchSection {
-	background-image: url('freshFood.jpg');
+	background-image: url('images/freshFood.jpg');
 	color: white;
 }
 .js-ingredients-form label {
