@@ -41,6 +41,7 @@
   padding-left: 1.04166666%;
   padding-right: 1.04166666%;
 }
+
 /* Mobile defaults */
 .col-4 {
   width: 100%;
@@ -80,7 +81,7 @@ header p {
     text-align: center;
   }
   input[type='text'] {
-    width: 50%;
+    width: 40%;
   }
   header p {
     font-size: 1em;
