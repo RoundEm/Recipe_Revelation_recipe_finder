@@ -37,8 +37,6 @@ const Yummly = {
 		}
 	},
 	processRecipeData: function(data) {
-		// console.groupCollapsed(`processRecipeData: ${data.id}`);
-		console.log('data:', data);
 		// loop over data and look at ID of data and match it to an item from the result data array
 		let resultDataIndex = Yummly.resultDataIndexById(data.id);
 		for (let property in data) {
@@ -52,7 +50,6 @@ const Yummly = {
 		    }
 		}
 		Yummly.displayCounter++;	
-		console.log('Yummly.displayCounter:', Yummly.displayCounter);
 		Yummly.displayRecipeData();
 		// Scroll to top of next page
 		document.body.scrollTop = document.documentElement.scrollTop = 225;
@@ -136,7 +133,6 @@ const Yummly = {
 	removeIngredient: function($this) {
 		let index = $this.index();
 		$this.remove();
-		console.log('index:', index);
 		$('.js-recipeResults').empty();
 		$('.searchResponse').empty();
 		$('.moreResults').hide();
@@ -178,7 +174,6 @@ const Yummly = {
 			if (Yummly.page > 0) {
 				Yummly.page = 0;
 			}
-			console.log('page:', Yummly.page);
 		});
 	},
 	clearIngredientList: function() {
@@ -208,17 +203,16 @@ const Yummly = {
 			Yummly.resultData = data;
 			Yummly.totalResults = data.totalMatchCount;
 			Yummly.resultsRemaining = data.totalMatchCount;
-			console.log('totalResults at start:', Yummly.totalResults);
 			Yummly.getRecipeDataFromApi();
 		}
 	},
 	checkPageNumber: function(data) {
 		Yummly.resultData = data;
 		Yummly.resultsRemaining = Yummly.totalResults - Yummly.page;
-		console.log('totalResults:', Yummly.totalResults);
-		console.log('Yummly.resultsRemaining:', Yummly.resultsRemaining);
-		console.log('Yummly.responseResult:', Yummly.responseResult);
-		console.log('Yummly.page:', Yummly.page);
+		// console.log('totalResults:', Yummly.totalResults);
+		// console.log('Yummly.resultsRemaining:', Yummly.resultsRemaining);
+		// console.log('Yummly.responseResult:', Yummly.responseResult);
+		// console.log('Yummly.page:', Yummly.page);
 		if (Yummly.resultsRemaining < Yummly.responseResult) {
 			Yummly.resultsLimiter = Yummly.resultsRemaining;
 			$('.moreResults').hide();
@@ -237,7 +231,7 @@ const Yummly = {
 		$('.moreResults').click(function() {;
 			Yummly.displayCounter = 0;
 			Yummly.page += Yummly.responseResult;
-			console.log('page Number more:', Yummly.page);
+			// console.log('page Number more:', Yummly.page);
 			$('.js-recipeResults').empty();
 			Yummly.paginationButtonFilter();
 			Yummly.getDataFromApi(Yummly.ingredients, Yummly.checkPageNumber, Yummly.page);
@@ -251,7 +245,7 @@ const Yummly = {
 				$('.moreResults').show();
 			} 
 			Yummly.page -= Yummly.responseResult;	
-			console.log('page Number prior:', Yummly.page);
+			// console.log('page Number prior:', Yummly.page);
 			$('.js-recipeResults').empty();
 			Yummly.paginationButtonFilter();
 			Yummly.getDataFromApi(Yummly.ingredients, Yummly.checkPageNumber, Yummly.page);
