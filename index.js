@@ -66,7 +66,7 @@ const Yummly = {
 				let sourceName = Yummly.resultData.matches[i].sourceDisplayName;
 				let sourceRecipeUrl = Yummly.resultData.matches[i].source.sourceRecipeUrl;
 				let servings = Yummly.resultData.matches[i].numberOfServings;
-				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`: `<p class="templateNoImg">Sorry, no image available. Here's a <a href=${sourceRecipeUrl} target="_blank">link</a> to the recipe source.</p>`);
+				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}" tabindex="0"  alt="Image of recipe"></a>`: `<p class="templateNoImg" tabindex="0">Sorry, no image available. Here's a <a href=${sourceRecipeUrl} target="_blank">link</a> to the recipe source.</p>`);
 				let recipeTime = '';	
 				if (Yummly.resultData.matches[i].totalTimeInSeconds === null) {
 					recipeTime = `Sorry, the recipe time is not available. See recipe <a href="${sourceRecipeUrl}" target="_blank">source for more information</a>`;
@@ -82,9 +82,9 @@ const Yummly = {
 				}
 				$('.js-recipeResults').append(
 					`<div class="col-4"><a href="${sourceRecipeUrl}"><p class="templateRecipeName"><span>${recipeName}</span> from <em>${sourceName}</em></a></p>
-					<p class="templateIngredients"><span>Ingredients:</span> ${ingredientString}</p>
-					<p class="templateTime"><span>Total Time:</span> ${recipeTime}</p>
-					<p class="templateServings">Number of Servings: ${servings}</p>
+					<p class="templateIngredients" tabindex="0"><span>Ingredients:</span> ${ingredientString}</p>
+					<p class="templateTime" tabindex="0"><span>Total Time:</span> ${recipeTime}</p>
+					<p class="templateServings" tabindex="0">Number of Servings: ${servings}</p>
 					${imageTag}</div>`
 				);
 			}
