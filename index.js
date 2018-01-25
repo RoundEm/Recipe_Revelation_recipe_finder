@@ -41,13 +41,9 @@ const Yummly = {
 		console.log('data:', data);
 		// loop over data and look at ID of data and match it to an item from the result data array
 		let resultDataIndex = Yummly.resultDataIndexById(data.id);
-		// console.log('resultDataIndex:', resultDataIndex);
 		for (let property in data) {
 			if (data.hasOwnProperty(property)) {
-				// console.log(`Yummly.resultData.matches[${resultDataIndex}]:`, Yummly.resultData.matches[resultDataIndex]);
 				let objectKeys = Object.keys(Yummly.resultData.matches[resultDataIndex]);
-				// console.log('objectKeys:', objectKeys);
-				// console.log('property:', property);
 				// if property is not in existing keys of data, add it
 				let includesProperty = (objectKeys).includes(property);
 				if (!includesProperty) {
@@ -55,8 +51,6 @@ const Yummly = {
     			}
 		    }
 		}
-		// console.log('all info added to Yummly.resultData:', Yummly.resultData);
-		// console.groupEnd();
 		Yummly.displayCounter++;	
 		console.log('Yummly.displayCounter:', Yummly.displayCounter);
 		Yummly.displayRecipeData();
@@ -64,8 +58,8 @@ const Yummly = {
 		document.body.scrollTop = document.documentElement.scrollTop = 225;
 	},
 	displayRecipeData: function() {
-		console.log('Yummly.resultsLimiter:', Yummly.resultsLimiter);
-		console.log('Yummly.displayCounter:', Yummly.displayCounter);
+		// console.log('Yummly.resultsLimiter:', Yummly.resultsLimiter);
+		// console.log('Yummly.displayCounter:', Yummly.displayCounter);
 		if (Yummly.displayCounter === Yummly.resultData.matches.length) {
 			for (let i = 0; i < Yummly.resultData.matches.length; i++) {
 				let recipeName = Yummly.resultData.matches[i].name;
@@ -73,7 +67,7 @@ const Yummly = {
 				let sourceRecipeUrl = Yummly.resultData.matches[i].source.sourceRecipeUrl;
 				let servings = Yummly.resultData.matches[i].numberOfServings;
 				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}"></a>`: `<p class="templateNoImg">Sorry, no image available. Here's a <a href=${sourceRecipeUrl} target="_blank">link</a> to the recipe source.</p>`);
-				let recipeTime = '';
+				let recipeTime = '';	
 				if (Yummly.resultData.matches[i].totalTimeInSeconds === null) {
 					recipeTime = `Sorry, the recipe time is not available. See recipe <a href="${sourceRecipeUrl}" target="_blank">source for more information</a>`;
 				} else {
@@ -103,7 +97,6 @@ const Yummly = {
 			$('.priorResults').hide();
 			$('button.js-clearBtn, button.js-findRecipesBtn').prop('disabled', false);
 			$('.ingredientList').prop('hidden', false);
-			// find ingredient input
 			const queryTarget = $(this).find('.js-ingredient-query');
 			const queryValue = queryTarget.val().toLowerCase();
 			// display ingredient to list in browser and add it to array
@@ -135,7 +128,7 @@ const Yummly = {
 			$this = $(this);
 		 var key = e.which;
 		 if(key == 13) {
-			 // the enter key code
+			// 13 is the enter key code
 		    Yummly.removeIngredient($this);
 		  }
 		});
@@ -150,15 +143,12 @@ const Yummly = {
 		$('.priorResults').hide();
 		$('.findRecipes').show();
 		let ingredientsLength = Yummly.ingredients.length;
-		// console.log('Yummly.ingredients.length before:', Yummly.ingredients.length);
 		ingredientsLength--;
 		// remove the ingredient selected from the array
 		Yummly.ingredients.splice(index, 1);
-		// console.log('ingredientsLength after splice:', ingredientsLength);
 		if (ingredientsLength === 0) {
 			$('button.js-clearBtn, button.js-findRecipesBtn').prop('disabled', true);
 			Yummly.ingredients = [];
-			// console.log('Yummly.ingredients clear:', Yummly.ingredients);
 			$('.ingredientList div').empty();
 			$('.results').prop('hidden', true);
 			$('.ingredientList').prop('hidden', true);
@@ -213,13 +203,12 @@ const Yummly = {
 			$('.searchResponse').html(`<strong>Success! ${data.attribution.html} </br>
 				Select recipe name or image to go to the source recipe webpage</strong>`);
 			$('.moreResults').show();
-			
+			// I may want to hide this later
 			// $('.findRecipes').hide();
 			Yummly.resultData = data;
 			Yummly.totalResults = data.totalMatchCount;
 			Yummly.resultsRemaining = data.totalMatchCount;
 			console.log('totalResults at start:', Yummly.totalResults);
-			// console.log('Yummly.resultData', Yummly.resultData);
 			Yummly.getRecipeDataFromApi();
 		}
 	},
