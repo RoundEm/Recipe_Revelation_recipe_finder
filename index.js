@@ -55,6 +55,7 @@ const Yummly = {
 		document.body.scrollTop = document.documentElement.scrollTop = 225;
 	},
 	displayRecipeData: function() {
+		console.log('resultsRemaining:', Yummly.resultsRemaining);
 		// console.log('Yummly.resultsLimiter:', Yummly.resultsLimiter);
 		// console.log('Yummly.displayCounter:', Yummly.displayCounter);
 		if (Yummly.displayCounter === Yummly.resultData.matches.length) {
@@ -80,8 +81,8 @@ const Yummly = {
 				$('.js-recipeResults').append(
 					`<div class="col-4"><a href="${sourceRecipeUrl}"><p class="templateRecipeName"><span>${recipeName}</span> from <em>${sourceName}</em></a></p>
 					<p class="templateIngredients" tabindex="0"><span>Ingredients:</span> ${ingredientString}</p>
-					<p class="templateTime" tabindex="0"><span>Total Time:</span> ${recipeTime}</p>
-					<p class="templateServings" tabindex="0">Number of Servings: ${servings}</p>
+					<p class="templateTime" tabindex="0"><span>Total Time:<span> ${recipeTime}</p>
+					<p class="templateServings" tabindex="0"><span>Number of Servings:<span> ${servings}</p>
 					${imageTag}</div>`
 				);
 			}
@@ -159,7 +160,8 @@ const Yummly = {
 			if ($('.searchContainer > div:first-of-type').hasClass('panel') === false) {
 				$('.accordion').html('Select to hide tips');
 				$('.searchContainer > div:first-of-type').prop('hidden', false);
-			} else {
+			} 
+			else {
 				$('.accordion').html('Select to see tips for best search results');
 				$('.searchContainer > div:first-of-type').prop('hidden', true);
 			}
