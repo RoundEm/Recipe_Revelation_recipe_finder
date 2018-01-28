@@ -64,7 +64,7 @@ const Yummly = {
 				let sourceName = Yummly.resultData.matches[i].sourceDisplayName;
 				let sourceRecipeUrl = Yummly.resultData.matches[i].source.sourceRecipeUrl;
 				let servings = Yummly.resultData.matches[i].numberOfServings;
-				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}" tabindex="0"  alt="Image of recipe"></a>`: `<p class="templateNoImg" tabindex="0">Sorry, no image available. Here's a <a href=${sourceRecipeUrl} target="_blank">link</a> to the recipe source.</p>`);
+				let imageTag = (!Yummly.resultData.matches[i].images[0].imageUrlsBySize[360].includes('null') ? `<a href="${sourceRecipeUrl}" target="_blank"><img src="${Yummly.resultData.matches[i].images[0].imageUrlsBySize[360]}" tabindex="0"  alt="Image of recipe"></a>`: `<p class="templateNoImg" tabindex="0">Sorry, no image available. Here's a <a href=${sourceRecipeUrl} target="_blank">link to the recipe source.</a></p>`);
 				let recipeTime = '';	
 				if (Yummly.resultData.matches[i].totalTimeInSeconds === null) {
 					recipeTime = `Sorry, the recipe time is not available. <a href="${sourceRecipeUrl}" target="_blank">See recipe source for more information</a>`;
