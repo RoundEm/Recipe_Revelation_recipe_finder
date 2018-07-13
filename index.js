@@ -71,6 +71,7 @@ const Yummly = {
 				} else {
 					recipeTime = `${Math.round(Yummly.resultData.matches[i].totalTimeInSeconds / 60)} minutes`;
 				}
+				// formats a comma between ingredients
 				let ingredientString = '';
 				for (let j = 0; j < Yummly.resultData.matches[i].ingredients.length; j++) {
 					ingredientString += Yummly.resultData.matches[i].ingredients[j];
@@ -123,7 +124,7 @@ const Yummly = {
 			$this = $(this);
 			Yummly.removeIngredient($this);
 		});
-		$('.ingredientList').on('keypress', 'li', function (e) {
+		$('.ingredientList').on('keypress', 'li', function(e) {
 			$this = $(this);
 			 var key = e.which;
 			 if(key == 13) {
