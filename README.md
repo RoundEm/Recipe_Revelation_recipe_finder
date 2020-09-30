@@ -13,9 +13,7 @@ This app is a 'reverse recipe finder' that utilizes yummly.com's recipe API to a
 - A11y Friendly
 
 # Screenshots of App:
-![alt text](images/screenShot_MainSearch.png "Main view of home page")
-![alt text](images/screenShot_Ingredients.png "Ingredient list to search for")
-![alt text](images/screenShot_recipes.png "Returned recipes")
-![alt text](images/screenShot_Tips.png "Tips for best search results")
-
-
+![Main view of home page](images/screenShot_MainSearch.png "Main view of home page")
+![Ingredient list to search for](images/screenShot_Ingredients.png "Ingredient list to search for")
+![Returned recipes](images/screenShot_recipes.png "Returned recipes")
+![Tips for best search results](images/screenShot_Tips.png "Tips for best search results")
