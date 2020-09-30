@@ -216,10 +216,6 @@ const Yummly = {
 	checkPageNumber: function(data) {
 		Yummly.resultData = data;
 		Yummly.resultsRemaining = Yummly.totalResults - Yummly.page;
-		// console.log('totalResults:', Yummly.totalResults);
-		// console.log('Yummly.resultsRemaining:', Yummly.resultsRemaining);
-		// console.log('Yummly.responseResult:', Yummly.responseResult);
-		// console.log('Yummly.page:', Yummly.page);
 		if (Yummly.resultsRemaining < Yummly.responseResult) {
 			Yummly.resultsLimiter = Yummly.resultsRemaining;
 			$('.moreResults').hide();
